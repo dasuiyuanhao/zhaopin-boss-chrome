@@ -1,0 +1,30 @@
+{
+    "name": "我的招聘工具-BOSS直聘筛选简历",
+    "version": "1.0",
+    "description": "我的招聘工具-BOSS直聘筛选简历",
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": true
+    },
+    "content_scripts": [
+        {
+            "js": [
+                "dist/jquery-v2.1.4.min.js",
+                "dist/jquery.hotkeys.js",
+                "dist/underscore-min.js", "dist/async.min.js",
+                "dist/moment.min.js", "dist/simple-statistics.min.js",
+                "dist/snabbdom.min.js", "dist/snabbdom-class.min.js", "dist/snabbdom-dataset.js",
+                "dist/snabbdom-eventlisteners.min.js", "dist/snabbdom-props.min.js", "dist/snabbdom-style.min.js",
+                "init.js", "load.js", "render.js"
+            ],
+            "css": ["style.css"],
+            "matches": ["https://www.zhipin.com/","https://www.zhipin.com/chat/im","https://www.zhipin.com/chat/im*"]
+        }
+    ],
+    "permissions": ["activeTab","contextMenus","tabs", "http://*/*","notifications"],
+    "manifest_version": 2,
+    "browser_action": {
+        "default_title": "",
+        "default_icon": "img/logo.png"
+    }
+}

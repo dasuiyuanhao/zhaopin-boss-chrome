@@ -1,0 +1,242 @@
+#extend_toggle_button {
+    position: fixed;
+    right: 0;
+    top: 0;
+    /*padding: .5rem 1rem;*/
+    border-bottom-left-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    background: red;
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    z-index: 2001;
+}
+#extend_panel {
+    background: white;
+    position: absolute;
+    /*top: 0;*/
+    left: 0;
+    right: 0;
+    /*bottom:0;*/
+    display: block;
+    z-index: 2000;
+    /*padding-top: 5rem;*/
+    display: block;
+    /*opacity:0.8;*/
+    width: 600px;
+}
+#extend_panel .left{
+    width: 500px;
+    min-height: 200px;
+    position: fixed;
+    /*top: 0;*/
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
+    /*opacity:0.5;*/
+}
+#extend_panel .right{
+    width: 600px;
+    min-height: 200px;
+    box-sizing: border-box;
+    border-left: 1px solid green;
+    position: fixed;
+    /*top: 0;*/
+    right: 0;
+    bottom: 0;
+    overflow-y: auto;
+    /*opacity:0.4;*/
+}
+#extend_panel .apps a {
+    display: block;
+    cursor: pointer;
+    text-decoration: none;
+    overflow-wrap: break-word;
+}
+#extend_panel .apps a.app {
+    font-weight: bold;
+}
+#extend_panel .project-wrap + .project-wrap {
+    margin-top: 2rem;
+}
+#extend_panel .project {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#extend_panel h5 {
+    color: red;
+    background: #eee;
+    padding: 1rem .5rem;
+    margin: 1rem 0;
+}
+#extend_panel .button {
+    height: 2rem; 
+    line-height: 2rem;
+    padding: .5rem 1rem;
+    min-width: 5rem;
+    text-align: center;
+    border-radius: 4px;
+    display: inline-block;
+    cursor: pointer;
+    font-weight: bold;
+    text-decoration: none;
+    background: #ddd;
+    color: #333;
+    margin: 0 1em 1rem 0;
+}
+#extend_panel .button.active {
+    color: white;
+    background: red;
+}
+
+#extend_panel .right > div {
+    padding: 1rem;
+}
+#extend_panel .right input {
+    /*background: #eee; font-size: 16px; padding: .8rem;*/
+    background-color: white;
+    margin-right: 1rem; width: 10em;
+    height: 26px;
+}
+#extend_panel .right input.error {
+    color: red;
+}
+
+#extend_panel .apps a {
+    line-height: 2em;
+    color: #333;
+}
+#extend_panel .apps a:hover {
+    color: red;
+}
+#extend_panel .dashboard {
+    width: 80%;
+    height: 60%;
+    border: 1px solid #efefef;
+    margin: 1rem auto 2rem auto;
+}
+
+#extend_panel .right .dashboard-edit-box {
+    display: block;
+    background: #eee;
+    /*padding-bottom: 3rem;*/
+}
+#extend_panel .right .dashboard-edit-box .buttons {
+    margin-bottom: 2rem;
+}
+#extend_panel .right .dashboard-edit-box .buttons > a {
+    color: #555;
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 2em;
+    text-decoration: none;
+}
+#extend_panel .right .dashboard-edit-box .close:hover {
+    color: red;
+}
+#extend_panel .right .dashboard-edit-box input.title {
+    display: block;
+    margin-bottom: 1.5rem;
+    width: 70%;
+}
+#extend_panel .right .dashboard-edit-box input {
+    /*border-bottom: 1px solid #555;*/
+    /*padding: .5rem 0 .2rem 0;*/
+    font-size: 1.2rem;
+    background-color: white;
+}
+#extend_panel .right .dashboard-edit-box input.series {
+    width: 50%;
+}
+#extend_panel .right .dashboard-edit-box select {
+    padding: .5rem 0 .2rem 0;
+}
+#extend_panel .right .dashboard-edit-box p {
+    margin-top: 2.5rem;
+    margin-bottom: .5rem;
+}
+#extend_panel .right .dashboard-edit-box textarea {
+    width: 100%;
+    /*min-height: 5em;*/
+}
+#extend_panel .right .dashboard-edit-box a.remove-series {
+    margin-left: 2rem;
+    cursor: pointer;
+}
+
+#console_of_monitor {
+    background: #B2DBD5;
+    width: 100%;
+    height: 100%;
+    padding: 1em;
+    font-size: 130%;
+    color: #283734;
+    font-weight: bold;
+    line-height: 1.6em;
+    overflow-y: auto;
+}
+
+
+/**左边*/
+#extend_panel .left > div {
+    padding: 1rem;
+}
+#extend_panel .left input {
+    /*background: #eee; font-size: 16px; padding: .8rem;*/
+    background-color: white;
+    margin-right: 1rem; width: 10em;
+    height: 26px;
+}
+#extend_panel .left input.error {
+    color: red;
+}
+
+#extend_panel .left .dashboard-edit-box {
+    display: block;
+    background: #eee;
+    /*padding-bottom: 3rem;*/
+}
+#extend_panel .left .dashboard-edit-box .buttons {
+    margin-bottom: 2rem;
+}
+#extend_panel .left .dashboard-edit-box .buttons > a {
+    color: #555;
+    display: inline-block;
+    cursor: pointer;
+    margin-right: 2em;
+    text-decoration: none;
+}
+#extend_panel .left .dashboard-edit-box .close:hover {
+    color: red;
+}
+#extend_panel .left .dashboard-edit-box input.title {
+    display: block;
+    margin-bottom: 1.5rem;
+    width: 70%;
+}
+#extend_panel .left .dashboard-edit-box input {
+    /*border-bottom: 1px solid #555;*/
+    /*padding: .5rem 0 .2rem 0;*/
+    font-size: 1.2rem;
+    background-color: white;
+}
+#extend_panel .left .dashboard-edit-box input.series {
+    width: 50%;
+}
+#extend_panel .left .dashboard-edit-box select {
+    padding: .5rem 0 .2rem 0;
+}
+#extend_panel .left .dashboard-edit-box p {
+    height: 24px;
+    margin: 0;
+}
+#extend_panel .left .dashboard-edit-box textarea {
+    width: 100%;
+    /*min-height: 5em;*/
+}
+#extend_panel .left .dashboard-edit-box a.remove-series {
+    margin-left: 2rem;
+    cursor: pointer;
+}
