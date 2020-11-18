@@ -18,7 +18,7 @@
                 "init.js", "load.js", "render.js"
             ],
             "css": ["style.css"],
-            "matches": ["https://www.zhipin.com/","https://www.zhipin.com/chat/im","https://www.zhipin.com/chat/im*"]
+            "matches": ["https://www.zhipin.com/","https://www.zhipin.com/chat/im","https://www.zhipin.com/web/boss/*"]
         }
     ],
     "permissions": ["activeTab","contextMenus","tabs", "http://*/*","notifications"],
