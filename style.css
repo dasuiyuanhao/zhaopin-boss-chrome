@@ -27,7 +27,7 @@
     width: 600px;
 }
 #extend_panel .left{
-    width: 460px;
+    width: 426px;
     min-height: 200px;
     position: fixed;
     /*top: 0;*/
@@ -121,6 +121,7 @@
 #extend_panel .right .dashboard-edit-box {
     display: block;
     background: #eee;
+    padding: 5px;
     /*padding-bottom: 3rem;*/
 }
 #extend_panel .right .dashboard-edit-box .buttons {
@@ -180,14 +181,14 @@
 
 
 /**左边*/
-#extend_panel .left > div {
+/*#extend_panel .left > div {
     padding: 1rem;
-}
+}*/
 #extend_panel .left input {
     /*background: #eee; font-size: 16px; padding: .8rem;*/
     background-color: white;
-    margin-right: 1rem; width: 10em;
-    height: 26px;
+    /*margin-right: 1rem; width: 10em;*/
+    /*height: 26px;*/
 }
 #extend_panel .left input.error {
     color: red;
@@ -196,6 +197,7 @@
 #extend_panel .left .dashboard-edit-box {
     display: block;
     background: #eee;
+    padding: 5px;
     /*padding-bottom: 3rem;*/
 }
 #extend_panel .left .dashboard-edit-box .buttons {
@@ -211,17 +213,7 @@
 #extend_panel .left .dashboard-edit-box .close:hover {
     color: red;
 }
-#extend_panel .left .dashboard-edit-box input.title {
-    display: block;
-    margin-bottom: 1.5rem;
-    width: 70%;
-}
-#extend_panel .left .dashboard-edit-box input {
-    /*border-bottom: 1px solid #555;*/
-    /*padding: .5rem 0 .2rem 0;*/
-    font-size: 1.2rem;
-    background-color: white;
-}
+
 #extend_panel .left .dashboard-edit-box input.series {
     width: 50%;
 }
@@ -232,11 +224,43 @@
     height: 24px;
     margin: 0;
 }
-#extend_panel .left .dashboard-edit-box textarea {
-    width: 100%;
-    /*min-height: 5em;*/
-}
+
 #extend_panel .left .dashboard-edit-box a.remove-series {
     margin-left: 2rem;
     cursor: pointer;
+}
+
+/*输入框*/
+.form-label{
+    display: inline-block;
+    text-align: right;
+    vertical-align: top;
+    font-size: 14px;
+    /*font-weight: bold;*/
+    line-height: 30px;
+}
+.form-input{
+    box-sizing: border-box;
+    /*width: 350px;*/
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #D9E1F5;
+    border-radius: 4px;
+    text-indent: .5em;
+    vertical-align: top;
+}
+.form-btn{
+    padding: 0;
+    margin: 0;
+    border: 1px solid rgba(0, 0, 0, .0);
+    box-sizing: border-box;
+    border-radius: 4px;
+    outline: none;
+    font-size: 14px;
+    color: #fff;
+    height: 30px;
+    line-height: 30px;
+    cursor: pointer;
+    min-width: 90px;
+    background-color: #3E97FF;
 }

@@ -12,28 +12,43 @@ panel.innerHTML = `
     <div class="dashboard-edit-box" style="line-height: 30px;">
         <span>打开【推荐牛人】页面，先滚动到页面底部加载简历(也可以一键加载全部)</span>
         <br/>
-        学校名称：<textarea id="input_sql_control" style="width:420px; height: 60px;"  placeholder="清空不做筛选，多个以英文逗号分隔，或者以换行分隔">北京大学,清华大学,中国人民大学,北京师范大学,北京航空航天大学,中国农业大学,北京理工大学,北京科技大学,北京交通大学,中国协和医科大学,中央音乐学院,北京邮电大学,北京外国语大学,北京化工大学,中国政法大学,北京语言大学,北京工业大学中央戏剧学院,中央美术学院,对外经济贸易大学,中央财经大学,北京中医药大学,北京体育大学,北京林业大学,中国传媒大学,国际关系学院,中央民族大学,石油大学,复旦大学,上海交通大学同济大学,华东师范大学,上海财经大学,华东理工大学,上海第二医科大学,上海大学,上海外国语大学,东华大学,南开大学,天津大学,天津医科大学,中央司法警官学院,华北电力大学,燕山大学,河北工业大学,太原理工大学,山西农业大学,内蒙古大学,大连理工大学,东北大学,辽宁大学,大连海事大学,沈阳农业大学,辽宁工程技术大学,吉林大学,东北师范大学,延边大学,哈尔滨工业大学,哈尔滨工程大学,东北林业大学,东北农业大学,大庆石油学院,南京大学,东南大学,中国矿业大学,南京师范大学,南京航空航天大学,南京理工大学,南京农业大学,苏州大学,中国药科大学,河海大学,江苏大学,南京信息工程大学,江南大学,浙江大学,中国科学技术大学,安徽大学合肥工业大学,厦门大学,福州大学,南昌大学,山东大学,中国海洋大学,郑州大学,武汉大学,华中科技大学,华中师范大学,中国地质大学,华中农业大学,武汉理工大学,中南财经政法大学,中南大学,湖南大学,湖南师范大学,湘潭大学,中山大学,华南理工大学,华南师范大学,暨南大学,华南农业大学,广西大学,重庆大学,西南政法大学,西南师范大学,西南农业大学,四川大学,电子科技大学,西南交通大学,西南财经大学,四川农业大学,云南大学,西安交通大学,西北工业大学,西北大学,西安电子科技大学,西北农林科技大学,陕西师范大学,长安大学,陕西科技大学,兰州大学,新疆大学,国防科学技术大学,贵州大学,西北农林科大学,石河子大学,海南大学,宁夏大学,青海大学,西藏大学,第二军医大学,第四军医大学,合肥工业大学西南大学,安徽大学,中国石油大学,同济大学,合肥工业大学,河南大学,国防科技大学,西南大学,上海交通大学,北京工业大学,辽宁大学,东北林业大学,海军军医大学,空军军医大学,成都理工大学,上海中医药大学,天津工业大学,南京邮电大学,首都师范大学,成都中医药大学,宁波大学,上海海洋大学,南京林业大学,天津中医药大学,广州中医药大学,中国科学院大学,南京中医药大学,北京工商大学,延边大学</textarea>
-        <br/>
-        年龄小于：<input id="input_2_control" type="text" style="width:40px;margin-right:8px;" value="34" />
-        <input id="input_3_control" type="checkbox" checked="checked" style="width: 20px;height: 18px;line-height: 24px;text-align: center;margin: 2px;" />不包含应届生
-        <span style="margin-left:8px;">学历：</span>
-        <textarea id="input_5_control" style="width:120px; height: 28px;"  placeholder="清空不做筛选，多个以英文逗号分隔，或者以换行分隔">本科,硕士</textarea>
-        <br/>
-        求职岗位：<textarea id="input_4_control" style="width:420px; height: 28px;"  placeholder="清空不做筛选，多个以英文逗号分隔，或者以换行分隔">Java,架构师,技术经理,JavaScript,web前端,前端开发,HTML5</textarea>
-        <br/>
-        
-        <br/>
-        <button id="search_btn1_control"  style="float: left;width: 150px;height: 30px;margin-right:8px;">一键加载全部</button>
-        <button id="search_btn2_control"  style="float: left;width: 150px;height: 30px;">筛选全部(Shift+q)</button>
-        <br/>
-        <br/>
-        <button id="search_btn3_control"  style="float: left;width: 150px;height: 30px;margin-right:8px;">上一个(Shift+a)</button>
-        <button id="search_btn4_control"  style="float: left;width: 150px;height: 30px;margin-right:8px;">下一个(Shift+d)</button>
-        <span id="oneByOne_info_control" style="text-align: center;line-height: 30px;"></span>
-        <br />
-        <br />        
+        <div >            
+            <label class="form-label" style="line-height: 52px;">学校名称：</label>
+            <textarea id="input_sql_control" class="form-input" style="width:320px; height: 52px;"  placeholder="清空不做筛选，多个以英文逗号分隔，或者以换行分隔">北京大学,清华大学,中国人民大学,北京师范大学,北京航空航天大学,中国农业大学,北京理工大学,北京科技大学,北京交通大学,中国协和医科大学,中央音乐学院,北京邮电大学,北京外国语大学,北京化工大学,中国政法大学,北京语言大学,北京工业大学中央戏剧学院,中央美术学院,对外经济贸易大学,中央财经大学,北京中医药大学,北京体育大学,北京林业大学,中国传媒大学,国际关系学院,中央民族大学,石油大学,复旦大学,上海交通大学同济大学,华东师范大学,上海财经大学,华东理工大学,上海第二医科大学,上海大学,上海外国语大学,东华大学,南开大学,天津大学,天津医科大学,中央司法警官学院,华北电力大学,燕山大学,河北工业大学,太原理工大学,山西农业大学,内蒙古大学,大连理工大学,东北大学,辽宁大学,大连海事大学,沈阳农业大学,辽宁工程技术大学,吉林大学,东北师范大学,延边大学,哈尔滨工业大学,哈尔滨工程大学,东北林业大学,东北农业大学,大庆石油学院,南京大学,东南大学,中国矿业大学,南京师范大学,南京航空航天大学,南京理工大学,南京农业大学,苏州大学,中国药科大学,河海大学,江苏大学,南京信息工程大学,江南大学,浙江大学,中国科学技术大学,安徽大学合肥工业大学,厦门大学,福州大学,南昌大学,山东大学,中国海洋大学,郑州大学,武汉大学,华中科技大学,华中师范大学,中国地质大学,华中农业大学,武汉理工大学,中南财经政法大学,中南大学,湖南大学,湖南师范大学,湘潭大学,中山大学,华南理工大学,华南师范大学,暨南大学,华南农业大学,广西大学,重庆大学,西南政法大学,西南师范大学,西南农业大学,四川大学,电子科技大学,西南交通大学,西南财经大学,四川农业大学,云南大学,西安交通大学,西北工业大学,西北大学,西安电子科技大学,西北农林科技大学,陕西师范大学,长安大学,陕西科技大学,兰州大学,新疆大学,国防科学技术大学,贵州大学,西北农林科大学,石河子大学,海南大学,宁夏大学,青海大学,西藏大学,第二军医大学,第四军医大学,合肥工业大学西南大学,安徽大学,中国石油大学,同济大学,合肥工业大学,河南大学,国防科技大学,西南大学,上海交通大学,北京工业大学,辽宁大学,东北林业大学,海军军医大学,空军军医大学,成都理工大学,上海中医药大学,天津工业大学,南京邮电大学,首都师范大学,成都中医药大学,宁波大学,上海海洋大学,南京林业大学,天津中医药大学,广州中医药大学,中国科学院大学,南京中医药大学,北京工商大学,延边大学</textarea>
+        </div>   
+        <div style="line-height: 30px;height: 30px;margin-top:10px;">
+            <label class="form-label" style="line-height: 30px;">年龄小于：</label>
+            <input id="input_2_control" type="text" class="form-input" value="34" style="width:40px;" />
 
-        <div id="result_view" style="width:420px; height: 100px;overflow-y: auto;"></div>
+            <label class="form-label" style="line-height: 30px;margin-left:20px;">学历：</label>
+            <textarea class="form-input" id="input_5_control" style="width:120px; height: 30px;"  placeholder="清空不做筛选，多个以英文逗号分隔，或者以换行分隔">本科,硕士</textarea>
+        </div>   
+        <div style="line-height: 30px;height: 30px;margin-top:10px;">
+            <input class="form-input" id="input_3_control" type="checkbox" checked="checked" style="height: 30px;width: 16px;line-height: 30px;margin: 0;padding: 0;" />
+            <label class="form-label" style="line-height: 30px;">不包含应届生</label>
+
+            <input class="form-input" id="input_6_control" type="checkbox" checked="checked" style="height: 30px;width: 16px;line-height: 30px;margin: 0;padding: 0;margin-left:20px;" />
+            <label class="form-label" style="line-height: 30px;">打招呼后自动滚动到下一个</label>
+        </div>        
+        
+        <div style="line-height: 30px;margin-top:10px;">
+            <label class="form-label">求职岗位：</label>
+            <textarea id="input_4_control" class="form-input" style="width:300px; height: 28px;"  placeholder="清空不做筛选，多个以英文逗号分隔，或者以换行分隔">Java,架构师,技术经理,JavaScript,web前端,前端开发,HTML5</textarea>
+        </div>  
+        
+        <div style="line-height: 30px;margin-top:10px;">
+            <button id="search_btn1_control"  style="width: 150px;height: 30px;margin-right:8px;" class="form-btn">一键加载全部</button>
+            <button id="search_btn2_control"  style="width: 150px;height: 30px;" class="form-btn">筛选全部(Shift+q)</button>
+        </div>  
+        <div style="line-height: 30px;margin-top:10px;">
+            <button id="search_btn3_control"  style="width: 150px;height: 30px;margin-right:8px;" class="form-btn">上一个(Shift+a)</button>
+            <button id="search_btn4_control"  style="width: 150px;height: 30px;margin-right:8px;" class="form-btn">下一个(Shift+d)</button>
+            <span id="oneByOne_info_control" style="text-align: center;line-height: 30px;"></span>
+        </div>      
+
+        <div id="result_view" style="width:420px; height: 100px;overflow-y: auto;">
+            &nbsp;
+        </div>
     </div>
     
 </div>
@@ -684,7 +699,7 @@ function selectPrev(){
 function showInfoOfOneByOne(data){
     var msg="";
     if(data!=null){
-        msg="第"+(recommendData.indexOf(data)+1)+"个姓名："+data.realName;
+        msg="第"+(recommendData.indexOf(data)+1)+"个："+data.realName;
     }
 
     var $span_oneByOne=$("#oneByOne_info_control");
@@ -748,20 +763,21 @@ function btnCommunicateRefresh(e){
             if ($btn_doc.hasClass("btn-continue")) {
                 $li.css("background-color", "lightblue");
 
-                //当前的index
-                //标识
-                var itemDataGeek=$li.find(".card-inner").first().attr("data-geek");
-                var currentIndex=null;
-                if(recommendData!=null && !$.isEmptyObject(itemDataGeek)){
-                    $.each(recommendData, function(i, item){
-                        // console.info("打招呼之后--循环查找："+i);
-                        if(itemDataGeek == item.geek){
-                            currentIndex=i;
-                            return true;
-                        }                    　  
-                    });
-                    selectNext(currentIndex);
-                }                
+                //打招呼后自动滚动到下一个
+                if($("#input_6_control").prop("checked")){
+                    var itemDataGeek=$li.find(".card-inner").first().attr("data-geek");
+                    var currentIndex=null;
+                    if(recommendData!=null && !$.isEmptyObject(itemDataGeek)){
+                        $.each(recommendData, function(i, item){
+                            // console.info("打招呼之后--循环查找："+i);
+                            if(itemDataGeek == item.geek){
+                                currentIndex=i;
+                                return true;
+                            }                    　  
+                        });
+                        selectNext(currentIndex);
+                    }            
+                }                    
             }
         },1000);
         
