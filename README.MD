@@ -2,7 +2,7 @@
 
 
 ## 1.说明
-该应用是chrome浏览器的插件，只能在[BOSS直聘](https://www.zhipin.com)使用.
+该应用是chrome浏览器的插件[github zhaopin-boss-chrome](https://github.com/dasuiyuanhao/zhaopin-boss-chrome)，只能在[BOSS直聘](https://www.zhipin.com)使用。
 
 ## 2.功能
 * 支持BOSS直聘上【推荐牛人】的简历筛选功能。筛选条件：学校、年龄、应届生、学历、求职岗位
