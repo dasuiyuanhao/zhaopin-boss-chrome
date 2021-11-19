@@ -1,6 +1,6 @@
 {
     "name": "我的招聘工具-BOSS直聘筛选简历",
-    "version": "1.2",
+    "version": "1.4.0",
     "description": "我的招聘工具-BOSS直聘筛选简历",
     "background": {
         "scripts": ["background.js"],
@@ -18,7 +18,7 @@
                 "init.js", "load.js", "render.js"
             ],
             "css": ["style.css"],
-            "matches": ["https://www.zhipin.com/","https://www.zhipin.com/chat/im","https://www.zhipin.com/web/boss/*"]
+            "matches": ["https://www.zhipin.com/*","https://www.zhipin.com/web/boss/recommend"]
         }
     ],
     "permissions": ["activeTab","contextMenus","tabs", "http://*/*","notifications"],
