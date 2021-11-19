@@ -717,7 +717,7 @@ function doThings(){
          * 校验通过的处理
          */
         var $li=$($recommendLiList.get(item.domIndex));
-        $li.css("background-color","white");
+        $li.find("div.geek-info-card").css("background-color","white");
         if(checkResult==""){
             recommendData.push(item);
 
@@ -725,10 +725,10 @@ function doThings(){
             if($li!=null){
                 //如果未沟通比较橙色
                 if(item.goutong=="未沟通"){
-                    $li.css("background-color","orange");
+                    $li.find("div.geek-info-card").css("background-color","orange");
                 }               
                 else if(item.goutong=="已沟通"){
-                    $li.css("background-color","lightblue");
+                    $li.find("div.geek-info-card").css("background-color","lightblue");
                 }   
             }
 
@@ -913,7 +913,7 @@ function btnCommunicateRefresh(e){
         
         setTimeout(function(){
             if ($btn_doc.hasClass("btn-continue")) {
-                $li.css("background-color", "lightblue");
+                $li.find("div.geek-info-card").css("background-color", "lightblue");
 
                 //打招呼后自动滚动到下一个
                 if($("#input_6_control").prop("checked")){
