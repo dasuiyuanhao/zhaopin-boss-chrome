@@ -47,8 +47,13 @@
 BOSS直聘推荐牛人页面调整了，兼容升级下
 
 ## 5.联系方式
-### 作者：liuxiaoliang
+### 作者：dasuiyuanhao
 
 ### 电子邮箱：dasuiyuanhao@sina.com
 
 ### 微信号：dasuiyuanhao
+
+## 如果您使用后节省了时间，请打赏￥2.34元，帮捧捧场！
+![](https://github.com/dasuiyuanhao/blog/blob/45ad1e7c2dd95edd804cb878f70fb7068e394b12/images/wodeweixinshoukuanma.png)
+
+![](https://github.com/dasuiyuanhao/blog/blob/7d11b7ff600e406c3a7611d9ad18e4f7153a4a38/images/wodezhifubaoshoukuanma.png)
