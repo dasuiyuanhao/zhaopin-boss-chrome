@@ -30,6 +30,7 @@
     
 ## 4.版本说明
 
+
 ### V1.4.1
 更新适配BOSS直聘新版的样式。
 
@@ -53,7 +54,8 @@ BOSS直聘推荐牛人页面调整了，兼容升级下
 
 ### 微信号：dasuiyuanhao
 
-## 如果您使用后节省了时间，请打赏￥2.34元，帮捧捧场！
+## 如果您使用后节省了时间，请打赏￥3.14元，帮捧捧场！
+### 如果打赏更多的话，您将解锁一个彩蛋，请加微信获得。
 
 ![微信收款码](https://gitee.com/lizhilaile/blog/raw/master/images/wodeweixinshoukuanma.png)
 
