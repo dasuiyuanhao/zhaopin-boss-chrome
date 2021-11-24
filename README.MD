@@ -1,11 +1,11 @@
 [github zhaopin-boss-chrome](https://github.com/dasuiyuanhao/zhaopin-boss-chrome)
 [chrome extension](http://open.chrome.360.cn/html/dev_browserAction.html)
-
+ 
 ## 1.说明
 该应用是chrome浏览器的插件，只能在[BOSS直聘](https://www.zhipin.com)网站使用。
 
 ## 2.功能
-* 支持BOSS直聘上【推荐牛人】的简历筛选功能。筛选条件：学校、年龄、应届生、学历、求职岗位
+* 支持BOSS直聘上【推荐牛人】的简历筛选功能。筛选条件：学校、年龄、应届生、学历、求职岗位等等
 * 支持一键加载全部，支持快捷键操作
 ## 3.使用说明
 
@@ -33,9 +33,11 @@
 #### 微信号：dasuiyuanhao
 
 ### V2.0.0
-筛选条件增加年龄范围、性别。
+【推荐牛人】筛选条件增加年龄范围、性别、求职期望地点、牛人活跃状态。
 
-增加自动打招呼功能。
+【推荐牛人】增加重置筛选条件配置功能。增加自动打招呼功能。
+
+【沟通】对于已读的人员进行筛选，标记颜色；自动进行发消息；使用快捷键操作滚到到下一个、上一个。
     
     
 ## 5.免费版版本说明
