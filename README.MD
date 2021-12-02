@@ -1,38 +1,39 @@
-[github zhaopin-boss-chrome](https://github.com/dasuiyuanhao/zhaopin-boss-chrome)
-[chrome extension](http://open.chrome.360.cn/html/dev_browserAction.html)
+[github](https://github.com/dasuiyuanhao/zhaopin-boss-chrome)
+[gitee](https://gitee.com/lizhilaile/zhaopin-boss-chrome)
  
-## 1.说明
-该应用是chrome浏览器的插件，只能在[BOSS直聘](https://www.zhipin.com)网站使用。
+## 1.介绍
+zhaopin-boss-chrome 该应用是chrome浏览器的扩展程序，只能在[BOSS直聘](https://www.zhipin.com)网站使用,在BOSS直聘上为您提供高效的招聘工具
 
-## 2.功能
-* 支持BOSS直聘上【推荐牛人】的简历筛选功能。筛选条件：学校、年龄、应届生、学历、求职岗位等等
-* 支持一键加载全部，支持快捷键操作
-## 3.使用说明
+* 【推荐牛人】简历筛选功能。筛选条件：学校、年龄、应届生、学历、求职岗位、性别、求职期望地点、牛人活跃状态等
+* 【推荐牛人】支持一键加载全部，支持自动打招呼，支持快捷键操作。
+* 【沟通】对于已读的人员进行筛选，标记颜色；自动进行发消息；使用快捷键滚动到下一个、上一个。
 
-### 3.1 安装
-  您可以下载源代码，在chrome://extensions 下打开开发者模式，加载已解压的扩展程序。
+## 联系方式
+### 作者：dasuiyuanhao
 
-  [Chrome安装扩展程序教程](https://jingyan.baidu.com/article/148a19216b72900c70c3b176.html)
-### 3.2 使用
-  1.设置招呼语，【工具箱】->【自定义打招呼语】，去设置自定义招呼语。
-  例如：请问方便发一份您的简历过来吗？第一学历是统招的一本吗？
+### 电子邮箱：dasuiyuanhao@sina.com
 
-  2.打开【推荐牛人】页面，左下角会显示控制台(点击页面右上角隐藏按钮可以隐藏)，配置筛选条件。
+### 微信号：dasuiyuanhao
 
-  3.滚动到页面底部加载简历，也可以一键加载全部，点击筛选全部。
-  
-  满足筛选条件的简历：未沟通的标记橙色，已沟通的标记淡蓝色。已过滤专科学历。
+## 如果您使用后节省了时间，请打赏￥3.14元，帮捧捧场，谢谢！
+<div  align="center"> 
 
-  点击【打招呼】按钮，勾选了“打招呼后自动滚动到下一个”，会自动滚动到下一个满足条件的简历。
+<img src="https://gitee.com/lizhilaile/blog/raw/master/images/wodeweixinshoukuanma.png" width = "400" height = "400" alt="微信支付，微信号：dasuiyuanhao" align="center" />
 
-  开始体验丝滑般的沟通吧！
+</div>
+</br>
+<div  align="center"> 
 
-## 4.专业版版本说明
-### 专业版提供更好的体验，并持续升级支持，请加微信后打赏￥99.9元即可获得，帮捧捧场！
+<img src="https://gitee.com/lizhilaile/blog/raw/master/images/wodezhifubaoshoukuanma.png" width = "400" height = "400" alt="支付宝支付" align="center" />
+
+</div>
+
+## 2.版本说明
+## 专业版提供更好的体验，并持续升级支持，请加微信沟通。
 #### 电子邮箱：dasuiyuanhao@sina.com
 #### 微信号：dasuiyuanhao
 
-### V2.0.0
+### 专业版V2.0.0
 【推荐牛人】筛选条件增加年龄范围、性别、求职期望地点、牛人活跃状态。
 
 【推荐牛人】增加重置筛选条件配置功能。增加自动打招呼功能。
@@ -40,7 +41,7 @@
 【沟通】对于已读的人员进行筛选，标记颜色；自动进行发消息；使用快捷键滚动到下一个、上一个。
     
     
-## 5.免费版版本说明
+## 免费版版本说明
 
 
 ### V1.4.1
@@ -59,16 +60,22 @@
 ### V1.1.0
 BOSS直聘推荐牛人页面调整了，兼容升级下
 
-## 6.联系方式
-### 作者：dasuiyuanhao
+## 3.使用说明
 
-### 电子邮箱：dasuiyuanhao@sina.com
+### 3.1 安装
+  您可以下载源代码，在chrome://extensions 下打开开发者模式，加载已解压的扩展程序。
 
-### 微信号：dasuiyuanhao
+  [Chrome安装扩展程序教程](https://jingyan.baidu.com/article/148a19216b72900c70c3b176.html)
+### 3.2 使用
+  1.设置招呼语，【工具箱】->【自定义打招呼语】，去设置自定义招呼语。
+  例如：请问方便发一份您的简历过来吗？第一学历是统招的一本吗？
 
-## 如果您使用后节省了时间，请打赏￥3.14元，帮捧捧场！
-### 如果打赏更多的话，您将解锁一个彩蛋，请加微信获得。
+  2.打开【推荐牛人】页面，左下角会显示控制台(点击页面右上角隐藏按钮可以隐藏)，配置筛选条件。
 
-![微信收款码](https://gitee.com/lizhilaile/blog/raw/master/images/wodeweixinshoukuanma.png)
+  3.滚动到页面底部加载简历，也可以一键加载全部，点击筛选全部。
+  
+  满足筛选条件的简历：未沟通的标记橙色，已沟通的标记淡蓝色。已过滤专科学历。
 
-![支付宝收款码](https://gitee.com/lizhilaile/blog/raw/master/images/wodezhifubaoshoukuanma.png)
+  点击【打招呼】按钮，勾选了“打招呼后自动滚动到下一个”，会自动滚动到下一个满足条件的简历。
+
+  开始体验丝滑般的沟通吧！ 
