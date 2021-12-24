@@ -39,7 +39,15 @@ zhaopin-boss-chrome 该应用是chrome浏览器的扩展程序，只能在[BOSS�
 【推荐牛人】增加重置筛选条件配置功能。增加自动打招呼功能。
 
 【沟通】对于已读的人员进行筛选，标记颜色；自动进行发消息；使用快捷键滚动到下一个、上一个。
-    
+</br>
+<div  align="center"> 
+  <img src="https://gitee.com/lizhilaile/zhaopin-boss-chrome/raw/master/img/%E6%B2%9F%E9%80%9A%E9%A1%B5%E9%9D%A2.png"  alt="【沟通】工具" align="center" /> 
+</div>
+</br>
+<div  align="center"> 
+  <img src="https://gitee.com/lizhilaile/zhaopin-boss-chrome/raw/master/img/%E6%8E%A8%E8%8D%90%E7%89%9B%E4%BA%BA.png"  alt="【推荐牛人】工具" align="center" /> 
+</div>
+</br>
     
 ## 免费版版本说明
 
