@@ -1,7 +1,7 @@
 [github](https://github.com/dasuiyuanhao/zhaopin-boss-chrome)
 [gitee](https://gitee.com/lizhilaile/zhaopin-boss-chrome)
  
-## 1.介绍
+## 1.介绍-因法律风险本项目不再维护，谢谢！
 zhaopin-boss-chrome 该应用是chrome浏览器的扩展程序，在[BOSS直聘](https://www.zhipin.com)、智联招聘网站使用,为您提供高效的自动化辅助工具
 
 * 【推荐牛人】简历筛选功能。筛选条件：学校、年龄、应届生、学历、求职岗位、性别、求职期望地点、牛人活跃状态等
