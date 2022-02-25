@@ -4,11 +4,10 @@
 ## 1.介绍
 <h3>声明：仅供学习参考，如果出现经济损失概不负责，请勿用于商业用途！</h3>
 <br/>
-<h3>您的Star是我继续前进的动力，如果喜欢请右上角帮忙点个Star</h3>
+<font color="orange"><h3>您的Star是我继续前进的动力，如果喜欢请右上角帮忙点个Star</h3></font>
 <br/>
-伯乐2号:招聘自动化工具，是Chrome扩展程序，省时间90%，自动化打招呼，自动化沟通，BOSS直聘插件，BOSS插件，还支持智联招聘，[开源代码地址](https://gitee.com/lizhilaile/zhaopin-boss-chrome)。
 
-zhaopin-boss-chrome 该应用是chrome浏览器的扩展程序，在[BOSS直聘](https://www.zhipin.com)、智联招聘网站使用,为您提供高效的自动化辅助工具
+zhaopin-boss-chrome，伯乐2号，招聘自动化工具，是Chrome扩展程序，省时间90%。模拟人的操作，自动筛选，自动打招呼，自动沟通。BOSS直聘插件，BOSS插件，[开源代码地址](https://gitee.com/lizhilaile/zhaopin-boss-chrome)。
 
 只能在[BOSS直聘](https://www.zhipin.com)网站使用,在BOSS直聘上为您提供高效的辅助工具。
 
