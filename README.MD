@@ -1,44 +1,26 @@
-[github](https://github.com/dasuiyuanhao/zhaopin-boss-chrome)
-[gitee](https://gitee.com/lizhilaile/zhaopin-boss-chrome)
- 
 ## 1.介绍
-zhaopin-boss-chrome 该应用是chrome浏览器的扩展程序，在[BOSS直聘](https://www.zhipin.com)、智联招聘网站使用,为您提供高效的自动化辅助工具
+<h3>声明：仅供学习参考，如果出现经济损失概不负责，请勿用于商业用途！</h3>
+<br/>
+<h3>您的Star是我继续前进的动力，如果喜欢请右上角帮忙点个Star</h3>
+<br/>
+伯乐2号:招聘自动化工具，是Chrome扩展程序，省时间90%，自动化打招呼，自动化沟通，BOSS直聘插件，BOSS插件，还支持智联招聘，[开源代码地址](https://gitee.com/lizhilaile/zhaopin-boss-chrome)。
 
-* 【推荐牛人】简历筛选功能。筛选条件：学校、年龄、应届生、学历、求职岗位、性别、求职期望地点、牛人活跃状态等
-* 【推荐牛人】支持一键加载全部，支持自动打招呼，支持快捷键操作。
-* 【沟通】对于已读的人员进行筛选，标记颜色；自动进行发消息；使用快捷键滚动到下一个、上一个。
+只能在[BOSS直聘](https://www.zhipin.com)网站使用,在BOSS直聘上为您提供高效的辅助工具。
 
-## 联系方式
-### 作者：dasuiyuanhao
-
-### 电子邮箱：dasuiyuanhao@sina.com
-
-### 微信号：dasuiyuanhao
-<div  align="center"> 
-<img src="https://gitee.com/lizhilaile/blog/raw/master/images/weixin_dasuiyuanhao_800.jpg" width = "600" alt="微信二维码：dasuiyuanhao" align="center" />
-</div>
-</br>
-
-## 如果您使用后节省了时间，请打赏￥3.14元，帮捧捧场，谢谢！
-<div  align="center"> 
-<img src="https://gitee.com/lizhilaile/blog/raw/master/images/wodeweixinshoukuanma.png" width = "400" height = "400" alt="微信支付，微信号：dasuiyuanhao" align="center" />
-</div>
-</br>
-<div  align="center"> 
-<img src="https://gitee.com/lizhilaile/blog/raw/master/images/wodezhifubaoshoukuanma.png" width = "400" height = "400" alt="支付宝支付" align="center" />
-</div>
 
 ## 2.版本说明
-## 专业版提供更好的体验，并持续升级支持，请加微信沟通。
-#### 电子邮箱：dasuiyuanhao@sina.com
-#### 微信号：dasuiyuanhao
+### V2.0.1
+【推荐牛人】增加了工龄筛选条件。
+【沟通】增加了时间范围筛选条件；放开了沟通自动沟通数量上限到10000个。
+【沟通】增加消息状态筛选条件（已读、送达、盼回复、全部）。
 
-### 专业版V2.0.0
-【推荐牛人】筛选条件增加年龄范围、性别、求职期望地点、牛人活跃状态。
+### V2.0.0
+【推荐牛人】简历筛选功能。筛选条件：学校、年龄、应届生、学历、求职岗位、性别、求职期望地点、牛人活跃状态等
 
-【推荐牛人】增加重置筛选条件配置功能。增加自动打招呼功能。
+【推荐牛人】自动打招呼功能。支持一键加载全部，支持自动打招呼，支持快捷键操作。增加重置筛选条件配置功能。
 
-【沟通】对于已读的人员进行筛选，标记颜色；自动进行发消息；使用快捷键滚动到下一个、上一个。
+【沟通】自动进行发消息；对于已读的人员进行筛选，标记颜色；使用快捷键滚动到下一个、上一个。
+
 </br>
 <div  align="center"> 
   <img src="https://gitee.com/lizhilaile/zhaopin-boss-chrome/raw/master/img/%E6%B2%9F%E9%80%9A%E9%A1%B5%E9%9D%A2.png"  alt="【沟通】工具" align="center" /> 
@@ -48,9 +30,7 @@ zhaopin-boss-chrome 该应用是chrome浏览器的扩展程序，在[BOSS直聘]
   <img src="https://gitee.com/lizhilaile/zhaopin-boss-chrome/raw/master/img/%E6%8E%A8%E8%8D%90%E7%89%9B%E4%BA%BA.png"  alt="【推荐牛人】工具" align="center" /> 
 </div>
 </br>
-    
-## 免费版版本说明
-
+  
 
 ### V1.4.1
 更新适配BOSS直聘新版的样式。
@@ -87,3 +67,25 @@ BOSS直聘推荐牛人页面调整了，兼容升级下
   点击【打招呼】按钮，勾选了“打招呼后自动滚动到下一个”，会自动滚动到下一个满足条件的简历。
 
   开始体验丝滑般的沟通吧！ 
+
+## 联系方式
+### 作者：dasuiyuanhao
+
+### 电子邮箱：dasuiyuanhao@sina.com
+
+### 微信号：dasuiyuanhao
+<div  align="center"> 
+<img src="https://gitee.com/lizhilaile/blog/raw/master/images/weixin_dasuiyuanhao_800.jpg" width = "400" alt="微信二维码：dasuiyuanhao" align="center" />
+</div>
+</br>
+
+## 如果您使用后节省了时间，请打赏￥3.14元，帮捧捧场，谢谢！
+<div  align="center"> 
+<img src="https://gitee.com/lizhilaile/blog/raw/master/images/wodeweixinshoukuanma.png" width = "400" height = "400" alt="微信支付，微信号：dasuiyuanhao" align="center" />
+</div>
+</br>
+<div  align="center"> 
+<img src="https://gitee.com/lizhilaile/blog/raw/master/images/wodezhifubaoshoukuanma.png" width = "400" height = "400" alt="支付宝支付" align="center" />
+</div>
+
+### 声明：仅供学习参考，如果出现经济损失概不负责，请勿用于商业行为！

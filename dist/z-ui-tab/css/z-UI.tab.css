@@ -1,0 +1,138 @@
+/*选项卡*/
+.zUI-bar{
+    width: 100%;
+    height: 100%;
+    color: #3a3a3a;
+}
+.zUI-bar *{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+.zUI-bar .bar-box{
+    width: 100%;
+    height: 30px;
+    display: flex;
+    flex-direction: row;
+    line-height: 30px;
+}
+.zUI-bar .content{
+    width: 100%;
+    height: calc(100% - 30px);
+    overflow: hidden;
+
+}
+.zUI-bar .content .wrap{
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    display: none;
+    padding: 3px;
+    background: white;
+}
+
+.zUI-bar .bar-box .nav{
+    padding: 0 15px;
+    text-align: center;
+    height: 100%;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all .2s;
+    -webkit-transition: all .2s;
+}
+.zUI-bar .bar-box .nav.disable{
+    color: lightgrey!important;
+    background-color: #eee!important;
+    cursor: not-allowed;
+}
+
+.zUI-bar.line .bar-box .nav{
+    border: 2px solid white;
+    float: left;
+}
+.zUI-bar .bar-box .nav.disable{
+    background-color: white!important;
+}
+.zUI-bar.line .bar-box .nav.active{
+    border-bottom-color: #3b97d7;
+    color: #3b97d7;
+}
+
+
+.zUI-bar.card .bar-box{
+    position: relative;font-size: inherit;
+}
+.zUI-bar.card .bar-box .nav-line{
+    border-bottom: 1px solid lightgrey;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+.zUI-bar.card .bar-box .nav{
+    border: 1px solid lightgrey;
+    color: #777;
+    float: left;
+    position: relative;
+    bottom: -1px;
+    border-radius: 3px 3px 0 0;
+}
+.zUI-bar.card .bar-box .nav:not(:first-child):not(:last-child){
+    margin: 0 5px;
+}
+.zUI-bar.card .bar-box .nav:first-child{
+    margin-right: 5px;
+}
+.zUI-bar.card .bar-box .nav:last-child{
+    margin-left: 5px;
+}
+.zUI-bar.card .bar-box .nav.active{
+    border-bottom-color: white;
+    color: #333;
+}
+.zUI-bar.card .bar-box .nav:not(.active){
+    background-color: #eee;
+}
+.zUI-bar.card .content .wrap{
+    border: 1px solid lightgrey;
+    border-top: 0;
+    border-radius: 0 0 4px 4px;
+}
+
+
+
+.zUI-bar.sm .bar-box{
+    height: 30px;
+    line-height: 30px;
+}
+.zUI-bar.sm .bar-box .nav{
+    min-width: 80px;
+    max-width: 150px;
+}
+.zUI-bar.sm .content{
+    height: calc(100% - 30px);
+}
+.zUI-bar.md .bar-box{
+    height: 40px;
+    line-height: 40px;
+}
+.zUI-bar.md .bar-box .nav{
+    min-width: 100px;
+    max-width: 150px;
+}
+.zUI-bar.md .content{
+    height: calc(100% - 40px);
+}
+.zUI-bar.lg .bar-box{
+    height: 50px;
+    line-height: 50px;
+}
+.zUI-bar.lg .bar-box .nav{
+    min-width: 120px;
+    max-width: 150px;
+}
+.zUI-bar.lg .content{
+    height: calc(100% - 50px);
+}
+.zUI-show{
+    display: block!important;
+}

@@ -1,7 +1,7 @@
 {
-    "name": "我的招聘工具-BOSS直聘筛选简历",
-    "version": "1.4.0",
-    "description": "我的招聘工具-BOSS直聘筛选简历",
+    "name": "伯乐2号-招聘辅助工具",
+    "version": "2.0.1",
+    "description": "伯乐2号-招聘辅助工具",    
     "background": {
         "scripts": ["background.js"],
         "persistent": true
@@ -11,20 +11,31 @@
             "js": [
                 "dist/jquery-v2.1.4.min.js",
                 "dist/jquery.hotkeys.js",
+                "dist/base64.min.js","dist/clipboard.js",
                 "dist/underscore-min.js", "dist/async.min.js",
                 "dist/moment.min.js", "dist/simple-statistics.min.js",
                 "dist/snabbdom.min.js", "dist/snabbdom-class.min.js", "dist/snabbdom-dataset.js",
                 "dist/snabbdom-eventlisteners.min.js", "dist/snabbdom-props.min.js", "dist/snabbdom-style.min.js",
-                "init.js", "load.js", "render.js"
+                "dist/z-ui-tab/js/z-UI.js","dist/z-ui-tab/js/z-UI.dom.js","dist/z-ui-tab/js/z-UI.tab.js",
+                "dist/md5.min.js",
+
+                "utils/base-util.js","utils/events-util.js","utils/date-util.js","utils/base-util.js","utils/hashmap-util.js",
+               
+                "init.js", "load.js", "render.js",
+
+                "modules/common_control.js","modules/search_control.js","modules/tuijian_communicate_control.js",
+                "modules/chat_control.js","modules/chat_auto_send_msg_control.js"
+                
             ],
-            "css": ["style.css"],
+            "css": ["style.css","dist/z-ui-tab/css/z-UI.tab.css"],
             "matches": ["https://www.zhipin.com/*","https://www.zhipin.com/web/boss/recommend"]
         }
     ],
-    "permissions": ["activeTab","contextMenus","tabs", "http://*/*","notifications"],
+    "permissions": ["debugger","activeTab","contextMenus","tabs", "http://*/*","notifications"],
     "manifest_version": 2,
     "browser_action": {
         "default_title": "",
         "default_icon": "img/logo.png"
-    }
+    },
+    "icons": {"16": "img/logo.png","32": "img/logo.png","48": "img/logo.png","128": "img/logo.png"}
 }

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="multipart/form-data; charset=utf-8" />
+    <title>z-UI-tab</title>
+    <link rel="stylesheet" type="text/css" href="css/z-UI.tab.css"/>
+    <script type="text/javascript" src="js/z-UI.js"></script>
+    <script type="text/javascript" src="js/z-UI.dom.js"></script>
+    <script type="text/javascript" src="js/z-UI.tab.js"></script>
+    <style>
+		html,body{
+            width: 100%;height: 100%;
+            margin:0;background-color: white;
+        }
+    </style>
+</head>
+<body>
+
+<div style="width: 100%;height: 100%;overflow-y: auto;box-sizing: border-box;padding: 20px;display: inline-flex">
+    <div style="width: 50%;height:200px;margin: 5px;">
+        <div class="zUI-bar line md" id="tab1">
+            <div class="bar-box">
+                <div class="nav active">
+                    选项一
+                </div>
+                <div class="nav">
+                    选项二
+                </div>
+                <div class="nav disable">
+                    选项三
+                </div>
+            </div>
+            <div class="content">
+                <div class="wrap zUI-show">
+                    我从它的南大门走了进去。外面，绿色是生长在高楼大厦之下的规规范范的绿化带；而这里，则是绿色植物们自由生长的世界，仅有零星散布的几处阁楼衬托着这片绿。前方有两处池子进入了我的视野，池子中那立在水面上的枯黄的荷叶以及荷叶杆，与周围葱绿的数木形成了巨大的色调差！池子看上去是那么的死寂，而池边却那么的生机勃勃。只不过在水面上，时不时有鱼儿探出头来，也许它们是为了欣赏池边的美景，并羡慕着“那边风景独好”。其实，待到盛夏，这池便会涅槃重生，犹如魔术般，粉红的荷花、翠绿的荷叶将布满池子！
+                </div>
+                <div class="wrap">
+                    <button onclick="zUI.tab.switchTab('#tab1',0)">点我切换到选项一</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div style="width: 50%;height:200px;margin: 5px;">
+        <div class="zUI-bar card sm" id="tab2">
+            <div class="bar-box">
+                <div class="nav-line">
+                    <div class="nav active" id="asd">
+                        选项一
+                    </div>
+                    <div class="nav">
+                        选项二
+                    </div>
+                    <div class="nav">
+                        选项三
+                    </div>
+                    <div class="nav disable">
+                        选项四
+                    </div>
+                </div>
+            </div>
+
+            <div class="content">
+                <div class="wrap zUI-show">
+                    在你心里，最能代表“春天”的是什么呢？ 是此刻窗外的猫叫。 是衬衫和短裤。 是“沾衣欲湿杏花雨，吹面不寒杨柳风”。 是家里每年春天，母亲亲手沏的那一壶新茶，温暖又缠绵。 也许是压抑不住的出行拍摄的冲动吧。
+                </div>
+                <div class="wrap">
+                    tab选项卡
+                </div>
+                <div class="wrap">
+                    许多年过去了，人们说陈年旧事可以被埋葬，然而我终于明白这是错的，因为往事会自行爬上来。回首前尘，我意识到在过去二十六年里，自己始终在窥视着那荒芜的小径。
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</body>
+
+<script>
+    zUI.tab.loadTab({
+        elem:'.zUI-bar',
+        clicks:[
+            function(index,nav,wrap){
+                console.log(nav);
+            },
+            function(index,nav,wrap){
+                console.log(nav);
+            },
+            function(index,nav,wrap){
+                console.log(nav);
+            }
+        ]
+    });
+
+</script>
+
+
+</html>
