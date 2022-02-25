@@ -11,6 +11,12 @@ zhaopin-boss-chrome，伯乐2号，招聘自动化工具，是Chrome扩展程序
 
 只能在[BOSS直聘](https://www.zhipin.com)网站使用,在BOSS直聘上为您提供高效的辅助工具。
 
+### 技术亮点：
+#### 1、使用Input.dispatchMouseEvent解决isTrusted为true的判断，触发按钮点击事件。
+#### 2、解决iframe中元素的定位问题。
+#### 3、实现Chrome扩展程序存储数据，例如保存和读取配置项。
+#### 4、页面元素筛选，按照既定逻辑自动操作；对于自定义封装输入框，能够进行模拟输入和触发事件。
+
 
 ## 2.版本说明
 ### V2.0.1
