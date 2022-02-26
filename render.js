@@ -38,6 +38,7 @@ panel.innerHTML = `
                         <label class="form-label" style="line-height: 30px;margin-left:10px;">学历</label>
                         <textarea class="form-input" id="input_5_control" style="width:100px; height: 30px;"  placeholder="清空不做筛选，多个以英文逗号分隔，或者以换行分隔"></textarea>
                         
+                        
                         <button id="btn_save_filter"  style="min-width: 32px;width: 32px;height: 24px;line-height: 24px;font-size: 10px;margin-left: 10px;" class="form-btn" title="保存筛选条件">保存</button>
                         <button id="btn_reset_filter"  style="min-width: 32px;width: 32px;height: 24px;line-height: 24px;font-size: 10px;margin-left: 10px;background-color: orange;" class="form-btn" title="重置筛选条件">重置</button>
             
@@ -59,9 +60,10 @@ panel.innerHTML = `
                                                 
                         </div>  
                         
-                        <div style="margin-top:5px;">            
+                        <div style="margin-top:5px;">     
                             <label class="form-label" style="line-height: 52px;">学校名称</label>
                             <textarea id="input_sql_control" class="form-input" style="width:320px; height: 52px;"  placeholder="清空不做筛选，多个以英文逗号分隔，或者以换行分隔"></textarea>
+                        
                         </div>   
                         
                         <div style="line-height: 30px;height: 30px;margin-top:5px;">
@@ -728,8 +730,16 @@ function doThings() {
             var expectContent = $.trim($($expectSpans.get(1)).text());
             var expectArr = expectContent.split("·");
             if (expectArr && expectArr.length > 1) {
-                item.expectPlace = $.trim(expectArr[0]);
-                item.expect = $.trim(expectArr[1]);
+                //有的是两级地址，例如：福州·福清市
+                if(expectArr.length>2){
+                    item.expectPlace = $.trim(expectArr[1]);
+                    item.expect = $.trim(expectArr[2]);
+                }
+                else{
+                    item.expectPlace = $.trim(expectArr[0]);
+                    item.expect = $.trim(expectArr[1]);
+                }
+                
             }
         }
 
@@ -894,6 +904,11 @@ function doThings() {
             var $btn_doc = $li.find("span.btn-doc").children("button");
             $btn_doc.unbind("click",btnCommunicateRefresh);
             $btn_doc.bind("click",btnCommunicateRefresh);
+        }
+        else{
+            if($li!=null){
+                
+            }
         }
     }
 
