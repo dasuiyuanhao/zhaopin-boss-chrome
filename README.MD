@@ -11,6 +11,8 @@ zhaopin-boss-chrome，伯乐2号，招聘自动化工具，是Chrome扩展程序
 
 只能在[BOSS直聘](https://www.zhipin.com)网站使用,在BOSS直聘上为您提供高效的辅助工具。
 
+另外，智联招聘自动化工具：[开源代码地址bole-zhilian-chrome](https://gitee.com/lizhilaile/bole-zhilian-chrome)
+
 ### 技术亮点：
 #### 1、使用Input.dispatchMouseEvent解决isTrusted为true的判断，触发按钮点击事件。
 #### 2、解决iframe中元素的定位问题。
@@ -92,7 +94,7 @@ BOSS直聘推荐牛人页面调整了，兼容升级下
 </div>
 </br>
 
-## 如果您使用后节省了时间，请打赏￥3.14元，帮捧捧场，谢谢！
+## 如果您使用后节省了时间，请打赏￥31.4元(一顿外卖)，帮捧捧场，请右上角点个Star，谢谢！
 <div  align="center"> 
 <img src="https://gitee.com/lizhilaile/blog/raw/master/images/wodeweixinshoukuanma.png" width = "400" height = "400" alt="微信支付，微信号：dasuiyuanhao" align="center" />
 </div>
