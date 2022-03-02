@@ -2,7 +2,7 @@
 [gitee](https://gitee.com/lizhilaile/zhaopin-boss-chrome)
 
 ## 1.介绍
-<h3>声明：仅供学习参考，如果出现经济损失概不负责，请勿用于商业用途！</h3>
+<h3>声明：仅供学习参考，请勿用于商业用途！</h3>
 <br/>
 <font color="orange"><h3>您的Star是我继续前进的动力，如果喜欢请右上角帮忙点个Star</h3></font>
 <br/>
