@@ -191,7 +191,7 @@ panel.innerHTML = `
                 <div class="wrap" >
                     
                     <div style="line-height: 30px;margin-top:5px;">
-                        <label class="form-label" style="line-height: 30px;">版本号：V2.0.0</label>
+                        <label class="form-label" style="line-height: 30px;">版本号：2.0.3</label>
             
                     </div>  
 
