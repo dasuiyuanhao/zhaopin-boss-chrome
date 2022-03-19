@@ -1,3 +1,7 @@
+/*!
+* Author: dasuiyuanhao
+* Date: 2020-3-20
+*/
 
 /**
  * 插件后台交互操作类型backgroundActionType:

@@ -19,6 +19,21 @@ zhaopin-boss-chrome，伯乐2号，招聘自动化工具，是Chrome扩展程序
 #### 3、实现Chrome扩展程序存储数据，例如保存和读取配置项。
 #### 4、页面元素筛选，按照既定逻辑自动操作；对于自定义封装输入框，能够进行模拟输入和触发事件。
 
+### 主要功能：
+#### 1、【推荐牛人】 自定义筛选条件筛选，可保存设置。筛选条件有：年龄、学历、学校、工龄、性别、是否应届毕业生、经历岗位、求职岗位、求职期望地点、牛人状态等。
+#### 2、【推荐牛人】 模拟人的操作，一键加载全部，自动进行打招呼。
+#### 3、【沟通】 自定义筛选条件筛选，可保存设置。筛选条件有：消息状态、时间范围、消息内容等。
+#### 4、【沟通】 模拟人的操作，自定义消息内容，一键自动发消息。
+</br>
+<div  align="center"> 
+  <img src="https://gitee.com/lizhilaile/zhaopin-boss-chrome/raw/master/img/%E6%B2%9F%E9%80%9A%E9%A1%B5%E9%9D%A2.png"  alt="【沟通】工具" align="center" /> 
+</div>
+</br>
+<div  align="center"> 
+  <img src="https://gitee.com/lizhilaile/zhaopin-boss-chrome/raw/master/img/%E6%8E%A8%E8%8D%90%E7%89%9B%E4%BA%BA.png"  alt="【推荐牛人】工具" align="center" /> 
+</div>
+</br>
+  
 
 ## 2.版本说明
 ### V2.0.2
@@ -36,16 +51,6 @@ zhaopin-boss-chrome，伯乐2号，招聘自动化工具，是Chrome扩展程序
 
 【沟通】自动进行发消息；对于已读的人员进行筛选，标记颜色；使用快捷键滚动到下一个、上一个。
 
-</br>
-<div  align="center"> 
-  <img src="https://gitee.com/lizhilaile/zhaopin-boss-chrome/raw/master/img/%E6%B2%9F%E9%80%9A%E9%A1%B5%E9%9D%A2.png"  alt="【沟通】工具" align="center" /> 
-</div>
-</br>
-<div  align="center"> 
-  <img src="https://gitee.com/lizhilaile/zhaopin-boss-chrome/raw/master/img/%E6%8E%A8%E8%8D%90%E7%89%9B%E4%BA%BA.png"  alt="【推荐牛人】工具" align="center" /> 
-</div>
-</br>
-  
 
 ### V1.4.1
 更新适配BOSS直聘新版的样式。

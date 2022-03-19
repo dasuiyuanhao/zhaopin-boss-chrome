@@ -1,3 +1,11 @@
+/*!
+* 招聘自动化工具，是Chrome扩展程序，省时间90%。模拟人的操作，自动筛选，自动打招呼，自动沟通。BOSS直聘插件，BOSS插件
+* https://gitee.com/lizhilaile/zhaopin-boss-chrome
+*
+* Released under the  GPL-3.0 license
+* Author: dasuiyuanhao
+* Date: 2020-3-20
+*/
 
 //抓取页面的锚点
 var $main = null;
@@ -85,7 +93,11 @@ panel.innerHTML = `
                             
                             
                         </div>        
-                        
+
+                        <div style="line-height: 30px;margin-top:5px;">
+                            <label class="form-label">经历岗位</label>
+                            <textarea id="input_workExp_control" class="form-input" style="width:320px; height: 28px;"  placeholder="清空不做筛选，多个以英文逗号分隔，或者以换行分隔"></textarea>
+                        </div>  
                         <div style="line-height: 30px;margin-top:5px;">
                             <label class="form-label">求职岗位</label>
                             <textarea id="input_4_control" class="form-input" style="width:320px; height: 28px;"  placeholder="清空不做筛选，多个以英文逗号分隔，或者以换行分隔"></textarea>
@@ -540,6 +552,19 @@ function doThings() {
     //过滤性别
     var filterGender = $("#select_gender_control").val();
 
+    //经历岗位
+    var filterWorkExp = [];
+    var input_workExp_val = $.trim($("#input_workExp_control").val());
+    if (input_workExp_val != '') {
+        //如果是带换行符
+        input_workExp_val = input_workExp_val.replace(/\n/g, ",");
+        filterWorkExp = input_workExp_val.split(",");
+        if (filterWorkExp == null) {
+            filterWorkExp = [];
+        }
+        filterWorkExp = trimArray(filterWorkExp);
+    }
+
     //求职岗位
     var filterExpects = [];
     var input_4_val = $.trim($("#input_4_control").val());
@@ -627,7 +652,8 @@ function doThings() {
         var $li = $($recommendLiList[i]);
         var item = {
             "domIndex": i,
-            "eduExpList": [],//教育经历
+            "workExpList":[],//经历岗位
+            "eduExpList": [],//教育经历            
         };
         //标识
         item.geek = $li.find(".card-inner").first().attr("data-geek");
@@ -689,6 +715,35 @@ function doThings() {
             });
         }
 
+        //经历岗位
+        var $work_exp_li_list = $li.find("ul.work-exp-box").children("li");
+        if ($work_exp_li_list && $work_exp_li_list.length > 0) {
+            $work_exp_li_list.each(function (index, element) {
+                var $e = $(element);
+                var $span = $e.children("span");
+                if ($span) {
+                    var workExpItem = { "index": index };
+                    if ($span.length > 0) {
+                        workExpItem.date = $span.first().text();
+                    }
+                    if ($span.length > 1) {
+                        var workContent = $.trim($($span[1]).text());
+                        if (workContent) {
+                            var splitWork = workContent.split("·");
+                            if (splitWork && splitWork.length > 0) {
+                                workExpItem.company = $.trim(splitWork[0]);
+                                if (splitWork.length > 1) {
+                                    //岗位
+                                    workExpItem.name = $.trim(splitWork[1]);
+                                }
+                            }
+                        }
+
+                    }
+                    item.workExpList.push(workExpItem);
+                }
+            });
+        }
 
         //教育经历
         var $edu_exp_li_list = $li.find("ul.edu-exp-box").children("li");
@@ -818,8 +873,7 @@ function doThings() {
         if (filterGender != null && filterGender != ""
             && item.gender != filterGender) {
             checkResult += "性别不符合条件。";
-        }
-
+        }  
         //过滤求职期望
         if (item.expect != null && item.expect != ""
             && filterExpects != null && filterExpects.length > 0) {
@@ -827,6 +881,25 @@ function doThings() {
                 checkResult += "求职职位不符合条件。";
             }
         }
+
+        //过滤经历岗位
+        if (filterWorkExp != null && filterWorkExp.length > 0) {
+            if (item.workExpList && item.workExpList.length > 0) {
+                var resultOfWorkExp = false;
+                for (var j = 0; j < item.workExpList.length; j++) {
+                    var itemWorkExp = item.workExpList[j];
+                    //只要有一段经历做过，则符合条件
+                    if (checkStringOfLike(itemWorkExp.name, filterWorkExp)) {
+                        resultOfWorkExp = true;
+                        break;
+                    }
+                }
+                if (!resultOfWorkExp) {
+                    checkResult += "经历岗位不符合条件。";
+                }
+            }
+        }
+
         //过滤学历
         if (filterEducations != null && filterEducations.length > 0) {
             if (item.eduExpList && item.eduExpList.length > 0) {

@@ -1,3 +1,10 @@
+/*!
+* https://gitee.com/lizhilaile/zhaopin-boss-chrome
+* Released under the  GPL-3.0 license
+* Author: dasuiyuanhao
+* Date: 2020-3-20
+*/
+
 const chromePluginId = "bole-zhaopin-chrome";
 /**
  * 插件后台交互操作类型backgroundActionType:

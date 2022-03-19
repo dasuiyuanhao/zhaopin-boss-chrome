@@ -1,4 +1,7 @@
-
+/*!
+* Author: dasuiyuanhao
+* Date: 2020-3-20
+*/
 
 function init(){
     console.info("开始加载......")

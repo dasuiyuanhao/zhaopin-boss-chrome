@@ -1,3 +1,8 @@
+/*!
+* Author: dasuiyuanhao
+* Date: 2020-3-20
+*/
+
 /**推荐牛人-自动打招呼 */
 const btnAutoCommunicateTextDefault = "筛选并自动打招呼";
 const btnAutoCommunicateTextStop = "停止自动打招呼";

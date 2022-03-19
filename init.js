@@ -1,3 +1,8 @@
+/*!
+* Author: dasuiyuanhao
+* Date: 2020-3-20
+*/
+
 const chromePluginId="bole-zhaopin-chrome";
 const chromePluginVersion="2.0.0";
 

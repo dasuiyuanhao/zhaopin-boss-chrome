@@ -1,3 +1,7 @@
+/*!
+* Author: dasuiyuanhao
+* Date: 2020-3-20
+*/
 
 /**筛选简历 控制面板**/
 const filterFailedMsg="筛选简历失败！请在【推荐牛人】页面加载牛人列表";
@@ -72,6 +76,8 @@ function initFilterSetting(){
     defaultSetting.filterGender="";
     //打招呼后自动滚动到下一个
     defaultSetting.autoScrollNext = false;
+    //经历岗位
+    defaultSetting.filterWorkExp = "";
     //求职岗位
     defaultSetting.filterExpects = "Java,架构师,技术经理,JavaScript,web前端,前端开发,HTML5";
     //求职意向不包含
@@ -125,6 +131,8 @@ function initFilterControl(){
     else {
         $("#input_6_control").prop("checked", false);
     }
+    //经历岗位
+    $("#input_workExp_control").val(defaultSetting.filterWorkExp);
     //求职岗位
     $("#input_4_control").val(defaultSetting.filterExpects);
     //求职意向不包含
@@ -257,6 +265,8 @@ btnSaveFilter.addEventListener('click', e => {
                 autoScrollNext = true;
             }
             defaultSetting.autoScrollNext = autoScrollNext;
+            //经历岗位
+            defaultSetting.filterWorkExp = $.trim($("#input_workExp_control").val());
             //求职岗位
             defaultSetting.filterExpects = $.trim($("#input_4_control").val());
             //求职意向不包含

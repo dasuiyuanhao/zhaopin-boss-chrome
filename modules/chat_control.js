@@ -1,3 +1,8 @@
+/*!
+* Author: dasuiyuanhao
+* Date: 2020-3-20
+*/
+
 /**【沟通】 */
 const chatControlFailedMsg="操作失败！请在【沟通】页面操作";
 //沟通项
