@@ -107,7 +107,7 @@ function autoCommunicateOneByOne(indexOfRecommendData){
     //判断是否未打过招呼
 
     if (item.goutong == "未沟通") {
-        var $btn_doc = $li.find("span.btn-doc").children("button");
+        var $btn_doc = $li.find("span.btn-doc").find("button.btn");
         if ($btn_doc != null && $btn_doc.length > 0) {
             if ($btn_doc.hasClass("btn-greet")) {
                 //滚动到这儿

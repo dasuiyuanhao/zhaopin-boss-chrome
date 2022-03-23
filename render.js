@@ -190,19 +190,23 @@ panel.innerHTML = `
                 <!--第三个Tab-->
                 <div class="wrap" >
                     
-                    <div style="line-height: 30px;margin-top:5px;">
-                        <label class="form-label" style="line-height: 30px;">版本号：2.0.3</label>
+                    <div style="line-height: 30px;">
+                        <label class="form-label" style="line-height: 30px;">版本号：2.0.4</label>
             
                     </div>  
 
-                    <div id="div_miyao_control" style="line-height: 30px;margin-top:5px;">
+                    <div id="div_miyao_control" style="line-height: 30px;">
                         <span>招聘自动化工具，提高您的招聘效率，早点下班休息。</span>
                         </br>
                         <span>声明：仅供学习参考，如果出现经济损失概不负责，请勿用于商业行为！</span>
                         </br>
                     </div>  
-                
-                              
+                    
+                    <div  align="center"> 
+                    微信号：dasuiyuanhao
+                        </br>
+                        <img src="https://gitee.com/lizhilaile/blog/raw/master/images/weixin_dasuiyuanhao_erweima.jpg" width = "200" alt="微信二维码：dasuiyuanhao" align="center" />
+                    </div>
                     
                 </div>
             </div>
@@ -660,7 +664,7 @@ function doThings() {
 
         //沟通情况
         item.goutong = "";
-        var $btn_doc = $li.find("span.btn-doc").children("button");
+        var $btn_doc = $li.find("span.btn-doc").find("button.btn");
         if ($btn_doc != null && $btn_doc.length > 0) {
             if ($btn_doc.hasClass("btn-continue")) {
                 item.goutong = "已沟通";
