@@ -4,21 +4,21 @@
 */
 
 /**【沟通】 */
-const chatControlFailedMsg="操作失败！请在【沟通】页面操作";
+const chatControlFailedMsg = "操作失败！请在【沟通】页面操作";
 //沟通项
-var $chatGeekItemList=[];
+var $chatGeekItemList = [];
 //沟通列表数据
-var chatDataList=[];
+var chatDataList = [];
 //满足条件的
-var resultChatDataList=[];
+var resultChatDataList = [];
 
 //再次沟通过 --再次查询时候不清空
-var zaiCiGouTongDataList=[];
+var zaiCiGouTongDataList = [];
 //当前数据
 var currentChatItem = null;
 
 //自动发消息了的列表
-var autoSendedMsgDataList=[];
+var autoSendedMsgDataList = [];
 
 //绑定快捷键
 $(document).bind('keydown.shift_w', function () {
@@ -41,14 +41,14 @@ $(document).bind('keydown.shift_e', function () {
 const el_btnChatQueryYidu = document.getElementById("btn_chat_query_yidu");
 el_btnChatQueryYidu.addEventListener('click', e => {
     try {
-        
+
         queryYidu();
     } catch (error) {
         alert(chatControlFailedMsg);
         console.error(chatControlFailedMsg);
         console.error(error);
         return;
-    }    
+    }
 });
 
 const btnChatLoadAll = document.getElementById("btn_chat_load_all");
@@ -64,7 +64,7 @@ el_btnChatAutoSendMsgForRead.addEventListener('click', e => {
         console.error(chatControlFailedMsg);
         console.error(error);
         return;
-    }    
+    }
 });
 
 const btnChatNext = document.getElementById("btn_chat_next");
@@ -79,29 +79,29 @@ btnChatPrev.addEventListener('click', e => {
 //复制      
 var clipboard_xuliehao = new ClipboardJS('#btn_copy_miyao', {
     target: function () {
-      return document.querySelector('#label_xuliehao');
+        return document.querySelector('#label_xuliehao');
     },
-  });
+});
 clipboard_xuliehao.on('success', function (e) {
-  console.log(e);
-  printLogInfo("复制成功！");
+    console.log(e);
+    printLogInfo("复制成功！");
 });
 clipboard_xuliehao.on('error', function (e) {
-  console.log(e);
-  printLogInfo("复制失败！");
+    console.log(e);
+    printLogInfo("复制失败！");
 });
 
 
 /**
  * 加载配置 开始
  */
- var defaultChatSetting = {
+var defaultChatSetting = {
     version: "2.0.0",
 };
 
 var loadFromSavedChat = false;
 if (window.localStorage) {
-    var strOfMyChatSetting = window.localStorage.getItem(chromePluginId+'_myChatSetting');
+    var strOfMyChatSetting = window.localStorage.getItem(chromePluginId + '_myChatSetting');
     if (strOfMyChatSetting != null && strOfMyChatSetting != "") {
         var myChatSetting = JSON.parse(strOfMyChatSetting);
 
@@ -120,24 +120,24 @@ if (!loadFromSavedChat) {
 initChatControl();
 
 //初始化筛选条件配置
-function initChatSetting(){
+function initChatSetting() {
     //发消息内容
     defaultChatSetting.chatSendMsg = "";
     //发消息后自动滚动到下一个
     defaultChatSetting.autoScrollNext = false;
-    defaultChatSetting.maxAutoSendMsgTimesOfChat=100;
-    defaultChatSetting.msgStatus="1"
-    defaultChatSetting.timeRange="";
+    defaultChatSetting.maxAutoSendMsgTimesOfChat = 100;
+    defaultChatSetting.msgStatus = "1"
+    defaultChatSetting.timeRange = "";
 }
 
 //初始化筛选条件面板
-function initChatControl(){
+function initChatControl() {
     $("#input_chat_send_msg").val(defaultChatSetting.chatSendMsg);
     $("#input_maxAutoSendMsgTimesOfChat").val(defaultChatSetting.maxAutoSendMsgTimesOfChat);
     //消息状态    
     if (defaultChatSetting.msgStatus == null) {
         //默认筛选已读
-        defaultChatSetting.msgStatus="1";
+        defaultChatSetting.msgStatus = "1";
     }
     $("#select_msgStatusOfAutoSendMsg").val(defaultChatSetting.msgStatus);
 
@@ -148,7 +148,7 @@ function initChatControl(){
     else {
         $("#select_timeRangeOfAutoSendMsg").val("");
     }
-    
+
     //打招呼后自动滚动到下一个
     if (defaultChatSetting.autoScrollNext) {
         $("#input_chat_send_next").prop("checked", "checked");
@@ -156,7 +156,7 @@ function initChatControl(){
     else {
         $("#input_chat_send_next").prop("checked", false);
     }
-    
+
 }
 
 
@@ -165,12 +165,12 @@ const btnSaveChatSetting = document.getElementById("btn_save_chat_setting");
 btnSaveChatSetting.addEventListener('click', e => {
     try {
         if (window.localStorage) {
-            
+
             //
             defaultChatSetting.chatSendMsg = $.trim($("#input_chat_send_msg").val());
             defaultChatSetting.maxAutoSendMsgTimesOfChat = $.trim($("#input_maxAutoSendMsgTimesOfChat").val());
             defaultChatSetting.timeRange = $("#select_timeRangeOfAutoSendMsg").val();
-            defaultChatSetting.msgStatus = $("#select_msgStatusOfAutoSendMsg").val();            
+            defaultChatSetting.msgStatus = $("#select_msgStatusOfAutoSendMsg").val();
 
             //打招呼后自动滚动到下一个
             var autoScrollNext = false;
@@ -185,7 +185,7 @@ btnSaveChatSetting.addEventListener('click', e => {
                 return;
             }
 
-            window.localStorage.setItem(chromePluginId+'_myChatSetting', strOfMySetting);
+            window.localStorage.setItem(chromePluginId + '_myChatSetting', strOfMySetting);
             printLogInfo("保存【沟通】配置成功！");
         }
     } catch (error) {
@@ -199,20 +199,22 @@ btnSaveChatSetting.addEventListener('click', e => {
 const btnResetChatSetting = document.getElementById("btn_reset_chat_setting");
 btnResetChatSetting.addEventListener('click', e => {
     try {
-        initChatSetting();
+        if (confirm("重置筛选条件将清空自定义内容，确定重置？")) {
+            initChatSetting();
 
-        initChatControl();
+            initChatControl();
 
-        if (window.localStorage) {
-            var strOfMySetting = JSON.stringify(defaultChatSetting);
-            if (strOfMySetting == null || strOfMySetting == "") {
-                printLogInfo("配置参数不能为空");
-                return;
+            if (window.localStorage) {
+                var strOfMySetting = JSON.stringify(defaultChatSetting);
+                if (strOfMySetting == null || strOfMySetting == "") {
+                    printLogInfo("配置参数不能为空");
+                    return;
+                }
+
+                window.localStorage.setItem(chromePluginId + '_myChatSetting', strOfMySetting);
+                printLogInfo("重置【沟通】配置成功！");
             }
-
-            window.localStorage.setItem(chromePluginId+'_myChatSetting', strOfMySetting);
-            printLogInfo("重置【沟通】配置成功！");
-        }
+        }        
     } catch (error) {
         printLogInfo("保存【沟通】的配置异常！请重试");
         console.error(error);
@@ -227,13 +229,13 @@ btnResetChatSetting.addEventListener('click', e => {
 
 /***业务逻辑 */
 
-function resetQueryResult(){
+function resetQueryResult() {
     //沟通项
-    $chatGeekItemList=[];
-    chatDataList=[];
-    filterChatDataList=[];
-    resultChatDataList=[];
-    currentChatItem=null;
+    $chatGeekItemList = [];
+    chatDataList = [];
+    filterChatDataList = [];
+    resultChatDataList = [];
+    currentChatItem = null;
 }
 
 /**滚动加载全部 */
@@ -286,8 +288,8 @@ function scrollLoadOfChat() {
     //找到最下面的元素
     try {
         let $chatContainer = $("div.chat-content-container");
-        $chatGeekItemList=$chatContainer.find("div.geek-item");
-        
+        $chatGeekItemList = $chatContainer.find("div.geek-item");
+
         var rText = logMsgPart + ",全部沟通" + $chatGeekItemList.length + "个 ";
         printLogInfo(rText);
 
@@ -298,12 +300,12 @@ function scrollLoadOfChat() {
         }
 
         var $thisTimeLastLi = $($chatGeekItemList[$chatGeekItemList.length - 1]);
-        var $warp=$thisTimeLastLi.find("div.geek-item-warp");
+        var $warp = $thisTimeLastLi.find("div.geek-item-warp");
         var thisTimeLast = findUidOfChat($warp);
 
 
         if (thisTimeLast == scollLoadEndItemOfChat) {
-            
+
             tryScrollLoadFailedTimesOfChat++;
             setTimeout(function () {
                 return scrollLoadOfChat();
@@ -314,8 +316,8 @@ function scrollLoadOfChat() {
         scollLoadEndItemOfChat = thisTimeLast;
 
         //滚到最后一个
-        if($chatGeekItemList!=null && $chatGeekItemList.length>0){
-            scrollToChatItem($($chatGeekItemList.get($chatGeekItemList.length-1)));
+        if ($chatGeekItemList != null && $chatGeekItemList.length > 0) {
+            scrollToChatItem($($chatGeekItemList.get($chatGeekItemList.length - 1)));
         }
 
     } catch (error) {
@@ -335,149 +337,149 @@ function scrollLoadOfChat() {
 }
 
 //筛选满足条件的聊天
-function queryYidu(){
+function queryYidu() {
     resetQueryResult();
 
     let $chatContainer = $("div.chat-content-container");
-    $chatGeekItemList=$chatContainer.find("div.geek-item");
+    $chatGeekItemList = $chatContainer.find("div.geek-item");
 
     //消息状态
-    var filterMsgStatusVal=$("#select_msgStatusOfAutoSendMsg").val();
-    var filterMsgStatus="";
-    if(filterMsgStatusVal==""){
-        filterMsgStatus="";
-    }else if(filterMsgStatusVal=="1"){
-        filterMsgStatus="[已读]";
-    }else if(filterMsgStatusVal=="2"){
-        filterMsgStatus="[送达]";
-    }else if(filterMsgStatusVal=="3"){
-        filterMsgStatus="[盼回复]";
+    var filterMsgStatusVal = $("#select_msgStatusOfAutoSendMsg").val();
+    var filterMsgStatus = "";
+    if (filterMsgStatusVal == "") {
+        filterMsgStatus = "";
+    } else if (filterMsgStatusVal == "1") {
+        filterMsgStatus = "[已读]";
+    } else if (filterMsgStatusVal == "2") {
+        filterMsgStatus = "[送达]";
+    } else if (filterMsgStatusVal == "3") {
+        filterMsgStatus = "[盼回复]";
     }
 
     //时间范围
-    var timeRange= $("#select_timeRangeOfAutoSendMsg").val();
-    var timeGreatThanOrEqualTo=null;
-    if(timeRange=="1"){
-        timeGreatThanOrEqualTo = moment(new Date()).subtract(0,'days').format('YYYY-MM-DD');
-    }else if(timeRange=="2"){
-        timeGreatThanOrEqualTo = moment(new Date()).subtract(1,'days').format('YYYY-MM-DD');
-    }else if(timeRange=="3"){
-        timeGreatThanOrEqualTo = moment(new Date()).subtract(2,'days').format('YYYY-MM-DD');
+    var timeRange = $("#select_timeRangeOfAutoSendMsg").val();
+    var timeGreatThanOrEqualTo = null;
+    if (timeRange == "1") {
+        timeGreatThanOrEqualTo = moment(new Date()).subtract(0, 'days').format('YYYY-MM-DD');
+    } else if (timeRange == "2") {
+        timeGreatThanOrEqualTo = moment(new Date()).subtract(1, 'days').format('YYYY-MM-DD');
+    } else if (timeRange == "3") {
+        timeGreatThanOrEqualTo = moment(new Date()).subtract(2, 'days').format('YYYY-MM-DD');
     }
-    else if(timeRange=="4"){
-        timeGreatThanOrEqualTo = moment(new Date()).subtract(6,'days').format('YYYY-MM-DD');
+    else if (timeRange == "4") {
+        timeGreatThanOrEqualTo = moment(new Date()).subtract(6, 'days').format('YYYY-MM-DD');
     }
-    else if(timeRange=="5"){
-        timeGreatThanOrEqualTo = moment(new Date()).subtract(1,'months').format('YYYY-MM-DD');
+    else if (timeRange == "5") {
+        timeGreatThanOrEqualTo = moment(new Date()).subtract(1, 'months').format('YYYY-MM-DD');
     }
-    if(timeGreatThanOrEqualTo!=null){
-        timeGreatThanOrEqualTo=new Date(timeGreatThanOrEqualTo);
+    if (timeGreatThanOrEqualTo != null) {
+        timeGreatThanOrEqualTo = new Date(timeGreatThanOrEqualTo);
     }
     // var timeLessThanOrEqualTo=moment().format('YYYY-MM-DD');
- 
-    for(var i=0;i<$chatGeekItemList.length;i++){
-        let $item=$($chatGeekItemList[i]);
 
-        var itemData={"domIndex":i};
-        var $warp=$item.find("div.geek-item-warp");
-        itemData.currentuid=findUidOfChat($warp);
-                
+    for (var i = 0; i < $chatGeekItemList.length; i++) {
+        let $item = $($chatGeekItemList[i]);
 
-        itemData.time=$warp.find("span.time").text();
-        itemData.realName=$warp.find("span.name").text();
+        var itemData = { "domIndex": i };
+        var $warp = $item.find("div.geek-item-warp");
+        itemData.currentuid = findUidOfChat($warp);
+
+
+        itemData.time = $warp.find("span.time").text();
+        itemData.realName = $warp.find("span.name").text();
         //消息状态
-        itemData.msgStatus="";
-        let $msgGraySpan=$warp.find("p.gray").children("span");
-        if($msgGraySpan!=null && $msgGraySpan.length>0){
-            let text_msgStatusSpan=$($msgGraySpan[0]).text();
-            if(text_msgStatusSpan!=null && text_msgStatusSpan!="" && text_msgStatusSpan.indexOf('[')==0){
-                itemData.msgStatus=text_msgStatusSpan;
+        itemData.msgStatus = "";
+        let $msgGraySpan = $warp.find("p.gray").children("span");
+        if ($msgGraySpan != null && $msgGraySpan.length > 0) {
+            let text_msgStatusSpan = $($msgGraySpan[0]).text();
+            if (text_msgStatusSpan != null && text_msgStatusSpan != "" && text_msgStatusSpan.indexOf('[') == 0) {
+                itemData.msgStatus = text_msgStatusSpan;
             }
         }
-        
+
         // itemData.pushText=$warp.find("span.push-text").text();
 
         chatDataList.push(itemData);
     }
 
-    let pMsg="沟通列表共"+chatDataList.length+"个。"+JSON.stringify(chatDataList);
+    let pMsg = "沟通列表共" + chatDataList.length + "个。" + JSON.stringify(chatDataList);
     console.info(pMsg);
 
     //过滤
-    for(let i=0;i<chatDataList.length;i++){
+    for (let i = 0; i < chatDataList.length; i++) {
         let checkResult = "";
-        let item=chatDataList[i];
-        
+        let item = chatDataList[i];
+
         //过滤阅读状态
-        if(item.msgStatus==null){
+        if (item.msgStatus == null) {
             checkResult += "消息状态不符合条件。";
-        }else if (filterMsgStatus != null && filterMsgStatus !="") {
-            if (item.msgStatus!=filterMsgStatus) {
+        } else if (filterMsgStatus != null && filterMsgStatus != "") {
+            if (item.msgStatus != filterMsgStatus) {
                 checkResult += "消息状态不符合条件。";
             }
         }
 
         //时间区间
-        if(item.time!=null && item.time!=""){
-            if(item.time.indexOf(':')<0){
-                let time=null;
-                if(item.time=="昨天"){
-                    time=new Date(moment(new Date()).subtract(1,'days').format('YYYY-MM-DD'));
-                }else if(item.time.indexOf('日')>=0){
-                    var strTimeR=item.time.replace('年','-').replace('月','-').replace('日','');
-                    if(item.time.indexOf('年')>=0){
-                        time=new Date(strTimeR);
-                    }else{
-                        time=new Date(""+(new Date()).getFullYear()+"-"+strTimeR);
-                    }                    
+        if (item.time != null && item.time != "") {
+            if (item.time.indexOf(':') < 0) {
+                let time = null;
+                if (item.time == "昨天") {
+                    time = new Date(moment(new Date()).subtract(1, 'days').format('YYYY-MM-DD'));
+                } else if (item.time.indexOf('日') >= 0) {
+                    var strTimeR = item.time.replace('年', '-').replace('月', '-').replace('日', '');
+                    if (item.time.indexOf('年') >= 0) {
+                        time = new Date(strTimeR);
+                    } else {
+                        time = new Date("" + (new Date()).getFullYear() + "-" + strTimeR);
+                    }
                 }
-                    
-                if(timeGreatThanOrEqualTo!=null){
-                    if(time<timeGreatThanOrEqualTo){
+
+                if (timeGreatThanOrEqualTo != null) {
+                    if (time < timeGreatThanOrEqualTo) {
                         checkResult += "沟通时间不符合条件-时间区间。";
                     }
                 }
-            }            
+            }
         }
 
         /**
          * 校验通过的处理
          */
-         var $item = $($chatGeekItemList.get(item.domIndex));         
-         if (checkResult == "") {
-             resultChatDataList.push(item);
+        var $item = $($chatGeekItemList.get(item.domIndex));
+        if (checkResult == "") {
+            resultChatDataList.push(item);
 
-             //标记li元素的背景颜色            
-             if ($item != null) {
-                 //如果未沟通设置橙色
-                 refreshChatItemRemark($item,"未沟通");
-             }
- 
+            //标记li元素的背景颜色            
+            if ($item != null) {
+                //如果未沟通设置橙色
+                refreshChatItemRemark($item, "未沟通");
+            }
+
             //  //点击按钮，绑定事件
             //  var $btn_doc = $li.find("span.btn-doc").children("button");
             //  $btn_doc.click(btnCommunicateRefresh);
-         }
-         else{
-            refreshChatItemRemark($item,"");
-         }
+        }
+        else {
+            refreshChatItemRemark($item, "");
+        }
     }
-    
 
-    pMsg="沟通列表共"+chatDataList.length+"个，满足条件的"+resultChatDataList.length+"个"//+JSON.stringify(resultChatDataList);
+
+    pMsg = "沟通列表共" + chatDataList.length + "个，满足条件的" + resultChatDataList.length + "个"//+JSON.stringify(resultChatDataList);
     printLogInfo(pMsg);
-       
+
 
 }
 
-function findUidOfChat($warp){
-    let currentuid=$warp.attr("currentuid");
-    let el_text_class=$warp.find("div.text").attr("class").toString();
-    if(el_text_class!=null){
-        let classNameList= el_text_class.split(" ");
-        if(classNameList!=null && classNameList.length>0){
-            $.each(classNameList,function(idx,obj){
-                if(!isBlank(obj) && obj.indexOf("uid-")>=0){
-                    currentuid=obj.substring(obj.indexOf("uid-")+4);
+function findUidOfChat($warp) {
+    let currentuid = $warp.attr("currentuid");
+    let el_text_class = $warp.find("div.text").attr("class").toString();
+    if (el_text_class != null) {
+        let classNameList = el_text_class.split(" ");
+        if (classNameList != null && classNameList.length > 0) {
+            $.each(classNameList, function (idx, obj) {
+                if (!isBlank(obj) && obj.indexOf("uid-") >= 0) {
+                    currentuid = obj.substring(obj.indexOf("uid-") + 4);
                     return true;
                 }
             });
@@ -488,7 +490,7 @@ function findUidOfChat($warp){
 
 
 //标记背景颜色
-function refreshChatItemRemark($item,goutong){
+function refreshChatItemRemark($item, goutong) {
     //如果未沟通设置橙色
     if (goutong == "未沟通") {
         $item.css("background-color", "orange");
@@ -496,7 +498,7 @@ function refreshChatItemRemark($item,goutong){
     else if (goutong == "已沟通") {
         $item.css("background-color", "lightblue");
     }
-    else{
+    else {
         $item.css("background-color", "white");
     }
 }
@@ -507,7 +509,7 @@ function refreshChatItemRemark($item,goutong){
 function selectNextChat(currentIndex) {
     showChatInfoOfOneByOne();
     if (resultChatDataList == null || resultChatDataList.length <= 0) {
-        alert(chatControlFailedMsg+"。并且先点击筛选按钮后，沟通列表有满足条件的人员。");
+        alert(chatControlFailedMsg + "。并且先点击筛选按钮后，沟通列表有满足条件的人员。");
         return;
     }
 
@@ -531,7 +533,7 @@ function selectNextChat(currentIndex) {
             if (idx + 1 >= resultChatDataList.length) {
                 //已经到最后了,从第一个开始
                 // alert("已经到最后了");
-                currentChatItem = resultChatDataList[0];   
+                currentChatItem = resultChatDataList[0];
                 // scrollToTopOfChat();             
             }
             else {
@@ -553,7 +555,7 @@ function selectNextChat(currentIndex) {
 function selectPrevChat() {
     showChatInfoOfOneByOne();
     if (resultChatDataList == null || resultChatDataList.length <= 0) {
-        alert(chatControlFailedMsg+"。并且先点击筛选按钮后，沟通列表有满足条件的人员。");
+        alert(chatControlFailedMsg + "。并且先点击筛选按钮后，沟通列表有满足条件的人员。");
         return;
     }
     if (currentChatItem != null) {
@@ -609,9 +611,9 @@ function scrollToChatItem(element, speed) {
         } else {
             var $e = $(element);
             if ($e.length > 0) {
-                
+
                 // var scrollTop = $e.offset().top-$("div.geek-list-scroll-wrap").offset().top;
-                var scrollTop = $e.offset().top-$("div.geek-list-inner-container").offset().top;
+                var scrollTop = $e.offset().top - $("div.geek-list-inner-container").offset().top;
                 let $divScoll = $("div.geek-list-scroll-wrap");
                 $divScoll.scrollTop(scrollTop);
 
@@ -631,97 +633,97 @@ function scrollToTopOfChat() {
     $("div.geek-list-scroll-wrap").scrollTop(0);
 }
 
-const miyaoOperateFailedMsg="请在BOSS直聘【沟通】页面操作";
-function handleMiyao(){
+const miyaoOperateFailedMsg = "请在BOSS直聘【沟通】页面操作";
+function handleMiyao() {
     $("#div_miyao_control").toggle();
 
-    let $label_name=$("#header").find("div.label-name");
-    if($label_name==null || $label_name.length<1){
+    let $label_name = $("#header").find("div.label-name");
+    if ($label_name == null || $label_name.length < 1) {
         alert(miyaoOperateFailedMsg);
         return;
     }
-    
-    let installedTag=calcXuliehao();
-    if(installedTag==null || installedTag==""){
+
+    let installedTag = calcXuliehao();
+    if (installedTag == null || installedTag == "") {
         alert(miyaoOperateFailedMsg);
         return;
     }
-    let now=""+moment(new Date()).unix();
-    installedTag+="_"+Base64.encode(now);
+    let now = "" + moment(new Date()).unix();
+    installedTag += "_" + Base64.encode(now);
     $("#label_xuliehao").text(installedTag);
 
 }
 
-function handleSaveMiyao(){
-    let valSaveMiyao=$.trim($("#input_miyao").val());
-    if(valSaveMiyao==null || valSaveMiyao==""){
+function handleSaveMiyao() {
+    let valSaveMiyao = $.trim($("#input_miyao").val());
+    if (valSaveMiyao == null || valSaveMiyao == "") {
         alert("请填写授权秘钥");
-        return ;
+        return;
     }
     if (!window.localStorage) {
         alert("浏览器不兼容");
     }
-    let installedTag=calcXuliehao();
-    if(installedTag==null || installedTag==""){
+    let installedTag = calcXuliehao();
+    if (installedTag == null || installedTag == "") {
         alert(miyaoOperateFailedMsg);
         return;
     }
 
-    let o=JSON.parse(Base64.decode(valSaveMiyao));
-    if(o!=null && o.data!=null && o.data.sn!=null && o.data.sn!=""){
+    let o = JSON.parse(Base64.decode(valSaveMiyao));
+    if (o != null && o.data != null && o.data.sn != null && o.data.sn != "") {
         //校验安装标识
-        let splitSN=o.data.sn.split("_");
-        if(splitSN!=null && splitSN.length>=3){
-            if(installedTag==(splitSN[0]+"_"+splitSN[1])){
-                
+        let splitSN = o.data.sn.split("_");
+        if (splitSN != null && splitSN.length >= 3) {
+            if (installedTag == (splitSN[0] + "_" + splitSN[1])) {
+
             }
-            else{
+            else {
                 alert("注册码的安装标识格式错误");
                 return;
             }
         }
-        else{
+        else {
             alert("注册码的安装标识格式错误");
             return;
         }
     }
-    else{
+    else {
         alert("注册码格式错误");
         return;
-    }    
+    }
 
     //存储
-    let objStorageM=null;
-    let storageKey=chromePluginId+'_m';
-    let valStorageM=window.localStorage.getItem(storageKey);
-    if(valStorageM!=null && valStorageM!=""){
-        objStorageM=JSON.parse(Base64.decode(valStorageM));
+    let objStorageM = null;
+    let storageKey = chromePluginId + '_m';
+    let valStorageM = window.localStorage.getItem(storageKey);
+    if (valStorageM != null && valStorageM != "") {
+        objStorageM = JSON.parse(Base64.decode(valStorageM));
     }
-    if(objStorageM==null){
-        objStorageM={
-            "installedTag":installedTag,
-            "miyaoList":[]
+    if (objStorageM == null) {
+        objStorageM = {
+            "installedTag": installedTag,
+            "miyaoList": []
         };
     }
-    if(objStorageM.miyaoList==null){
-        objStorageM.miyaoList=[];
+    if (objStorageM.miyaoList == null) {
+        objStorageM.miyaoList = [];
     }
-    let isExist=false;
-    $.each(objStorageM.miyaoList,function(index,item){
-        if(item.installedTag==installedTag){
-            item.code=valSaveMiyao;
-            isExist=true;
+    let isExist = false;
+    $.each(objStorageM.miyaoList, function (index, item) {
+        if (item.installedTag == installedTag) {
+            item.code = valSaveMiyao;
+            isExist = true;
             return true;
         }
-    })         
-    if(!isExist){
-        var miyaoItem={
-            "installedTag":installedTag,
-            "code":valSaveMiyao
+    })
+    if (!isExist) {
+        var miyaoItem = {
+            "installedTag": installedTag,
+            "code": valSaveMiyao
         }
         objStorageM.miyaoList.push(miyaoItem);
     }
-    let storageVal=Base64.encode(JSON.stringify(objStorageM));
+    let storageVal = Base64.encode(JSON.stringify(objStorageM));
 
     window.localStorage.setItem(storageKey, storageVal);
     printLogInfo("保存注册码成功");
@@ -729,17 +731,17 @@ function handleSaveMiyao(){
     $("#div_miyao_control").hide(500);
 }
 
-function calcXuliehao(){
-    let $label_name=$("#header").find("div.top-profile-logout").find("div.label-name");
-    if($label_name==null || $label_name.length<1){
+function calcXuliehao() {
+    let $label_name = $("#header").find("div.top-profile-logout").find("div.label-name");
+    if ($label_name == null || $label_name.length < 1) {
         return null;
     }
-    let currentName=$.trim($label_name.text());
-    if(currentName==null || currentName==""){        
+    let currentName = $.trim($label_name.text());
+    if (currentName == null || currentName == "") {
         return null;
     }
-    let content={
-        "currentName":currentName
+    let content = {
+        "currentName": currentName
     }
-    return calcVersionVal()+"_"+md5(JSON.stringify(content));
+    return calcVersionVal() + "_" + md5(JSON.stringify(content));
 }
