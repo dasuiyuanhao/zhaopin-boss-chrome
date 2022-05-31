@@ -128,7 +128,7 @@ function autoCommunicateOneByOne(indexOfRecommendData){
                 refreshBtnCommunicateBackground($btn_doc);
 
                 indexOfRecommendData++;
-                var ranNum = randomNum(500, 5000);
+                var ranNum = randomNum(2000, 20000);
                 console.info("自动打招呼,暂停" + ranNum + "毫秒后继续执行。");
                 setTimeout(function () {
                     autoCommunicateOneByOne(indexOfRecommendData);
