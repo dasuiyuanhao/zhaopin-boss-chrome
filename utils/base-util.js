@@ -88,4 +88,41 @@ function getElementPosition(e) {
     return { x: x, y: y };
 }
 
+
+//处理html元素内容，获取以i等为间隔的text。使用contents进行提取text的数组。
+function calcHtmlContentsText($ele){
+    let result=[];
+    if($ele==null || $ele.length<1){
+        return result;
+    }
+    let $contentsText=$ele.contents().filter(function(){ 
+        return this.nodeType == 3; 
+    });
+    for(let i=0;i<$contentsText.length;i++){
+        let item=$contentsText[i];
+        if(item!=null){
+            result.push($(item).text());
+        }
+    }
+
+    return result;
+}
+
+function calcHtmlContentsTextAndSplitString($ele,splitText){
+    let result="";
+    let arrText=calcHtmlContentsText($ele);
+    if(arrText!=null){
+        for(let i=0;i<arrText.length;i++){
+            let item=arrText[i];
+            if(item!=null && item!=""){
+                if(i>0){
+                    result+=splitText;
+                }
+                result+=item;
+            }
+        }
+    }
+
+    return result;
+}
   
