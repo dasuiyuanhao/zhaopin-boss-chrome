@@ -2,12 +2,12 @@
 [gitee](https://gitee.com/lizhilaile/zhaopin-boss-chrome)
 
 ## 1.介绍
-<h3>声明：完全开源、绿色、安全，仅供学习参考，如果出现使用时候经济损失概不负责，请勿用于商业用途！</h3>
+<h3>声明：完全开源、绿色、安全、安装便捷、省时90%✨仅供学习参考，请勿用于商业用途！</h3>
 <br/>
 <font color="orange"><h3>您的Star是我继续前进的动力，如果喜欢请右上角帮忙点个Star。维护不易，有钱的捧个钱场，没钱的捧个人场✨</h3></font>
 <br/>
 
-zhaopin-boss-chrome，伯乐2号，招聘自动化工具，Chrome扩展程序。完全开源、绿色、安全、省时90%。模拟人的操作，自动筛选，自动打招呼，自动沟通。BOSS直聘插件，BOSS插件，[开源代码地址](https://gitee.com/lizhilaile/zhaopin-boss-chrome)。
+zhaopin-boss-chrome，伯乐2号，招聘自动化工具，Chrome扩展程序。完全开源、绿色、安全、安装便捷、省时90%。模拟人的操作，自动筛选，自动打招呼，自动沟通。BOSS直聘插件，BOSS插件，[开源代码地址](https://gitee.com/lizhilaile/zhaopin-boss-chrome)。
 
 只能在[BOSS直聘](https://www.zhipin.com)网站使用,在BOSS直聘上为您提供高效的辅助工具。
 
@@ -42,7 +42,7 @@ zhaopin-boss-chrome，伯乐2号，招聘自动化工具，Chrome扩展程序。
 ### 2.1 安装
   1、您可以下载源代码：页面右上角位置点击【克隆/下载】按钮 -> 再点击【下载ZIP】。解压到自己习惯的文件目录。
   2、安装Chrome浏览器，如果已经安装浏览器则跳过，最好在应用商城下载安装，比如腾讯软件中心、360软件管家、联想应用商店等等。
-  在chrome://extensions 下打开开发者模式，加载第一步已解压的扩展程序。
+  在chrome://extensions 下打开开发者模式，加载第一步已解压的扩展程序即可(如果加载失败，可能是文件夹目录选错了，需要往下选一级目录)。
 
   [Chrome安装扩展程序教程](https://jingyan.baidu.com/article/148a19216b72900c70c3b176.html)
 ### 2.2 使用
@@ -83,7 +83,13 @@ zhaopin-boss-chrome，伯乐2号，招聘自动化工具，Chrome扩展程序。
 </div>
 
 
+
+
 ## 3.版本说明
+
+### V2.1.1
+【推荐牛人】增加工作经历筛选条件：经历单位名称包含、最近3个工作单位经历平均大于等于、经历工作内容包含。
+注意：[经历工作内容包含]，耗费查看次数，请谨慎使用。
 
 ### V2.1.0
 【推荐牛人】解决适配BOSS网站推荐牛人新版页面问题。

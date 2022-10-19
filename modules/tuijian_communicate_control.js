@@ -47,11 +47,7 @@ function stopAutoCommunicate(){
  * 自动打招呼
  */
 function doThingsOfAutoCommunicate(indexOfRecommendData) {
-    if(!event.isTrusted){
-        console.warn("非可信操作");
-        return;
-    }
-
+    
     if(isExcutingAutoCommunicate){
         console.info("自动打招呼-正在执行中,准备停止");
         stopAutoCommunicate();

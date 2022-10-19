@@ -126,3 +126,33 @@ function calcHtmlContentsTextAndSplitString($ele,splitText){
     return result;
 }
   
+
+/**
+ * 休眠多少秒时间
+ * 例子：
+ * async function doSomeThing() {
+  let out = await sleep(3);
+  return out;
+}
+ * @param  time  秒
+ * @returns 
+ */
+function sleep(time) {
+    return new Promise(resolve => setTimeout(resolve, time*1000));
+}
+
+//打印结果
+function printLogInfo(rText, isClear) {
+    rText = currentDateTimeByFormatForMMDDHHmmss() + " " + rText;
+    console.info(rText);
+    var $result_view = $("#result_view");
+    if (isClear) {
+        $result_view.html("");
+    }
+    if ($result_view.children().length > 0) {
+        $result_view.prepend("<p>" + rText + "</p>");
+    }
+    else {
+        $result_view.prepend("<p>" + rText + "</p>");
+    }
+}

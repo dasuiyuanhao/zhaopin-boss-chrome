@@ -8,9 +8,9 @@ const filterFailedMsg="筛选简历失败！请在【推荐牛人】页面加载
 const chromePlugin_p="20211206_DDFE1F6B-3C7F-5416-C011-251610E54350";
 
 //绑定快捷键
-$(document).bind('keydown.shift_q', function () {
+$(document).bind('keydown.shift_q', async function () {
     try {
-        doThings();
+        await doThings();
     } catch (error) {
         alert(filterFailedMsg);
         console.error(error);
@@ -145,6 +145,13 @@ function initFilterSetting(){
     defaultSetting.autoScrollNext = false;
     //经历岗位
     defaultSetting.filterWorkExp = "";
+    //经历单位名称包含
+    defaultSetting.filterWorkExpUnitNameLike = "";
+    //最近3个工作单位平均时长大于等于
+    defaultSetting.filterWorkExpTimeGreatThanOrEqualTo = "";
+    //经历工作内容包含
+    defaultSetting.filterWorkExpJobContentLike = "";
+
     //求职岗位
     defaultSetting.filterExpects = "Java,架构师,技术经理,JavaScript,web前端,前端开发,HTML5";
     //求职意向不包含
@@ -152,7 +159,7 @@ function initFilterSetting(){
     //求职期望地点包含
     defaultSetting.filterExpectPlace = "";
     //牛人活跃状态包含
-    defaultSetting.filterActiveStatus = "刚刚活跃,今日活跃,3日内活跃,本周活跃,本月活跃";
+    defaultSetting.filterActiveStatus = "在线,刚刚活跃,今日活跃,3日内活跃,本周活跃,本月活跃";
 }
 
 //初始化筛选条件面板
@@ -202,6 +209,13 @@ function initFilterControl(){
     }
     //经历岗位
     $("#input_workExp_control").val(defaultSetting.filterWorkExp);
+    //经历单位名称包含
+    $("#input_workExpUnitName_control").val(defaultSetting.filterWorkExpUnitNameLike);
+    //最近3个工作单位平均时长大于等于
+    $("#input_workExpTime_control").val(defaultSetting.filterWorkExpTimeGreatThanOrEqualTo);
+    //经历工作内容包含
+    $("#input_workExpJobContent_control").val(defaultSetting.filterWorkExpJobContentLike);
+
     //求职岗位
     $("#input_4_control").val(defaultSetting.filterExpects);
     //求职意向不包含
@@ -276,9 +290,9 @@ btnSC1.addEventListener('click', e => {
     }
 });
 const btnSC2 = document.getElementById("search_btn2_control");
-btnSC2.addEventListener('click', e => {
+btnSC2.addEventListener('click', async e => {
     try {
-        doThings();
+        await doThings();
     } catch (error) {
         alert(filterFailedMsg);
         console.error(error);
@@ -339,6 +353,13 @@ btnSaveFilter.addEventListener('click', e => {
             defaultSetting.autoScrollNext = autoScrollNext;
             //经历岗位
             defaultSetting.filterWorkExp = $.trim($("#input_workExp_control").val());
+            //经历单位名称包含
+            defaultSetting.filterWorkExpUnitNameLike = $.trim($("#input_workExpUnitName_control").val());
+            //经历岗位
+            defaultSetting.filterWorkExpTimeGreatThanOrEqualTo = $.trim($("#input_workExpTime_control").val());
+            //经历岗位
+            defaultSetting.filterWorkExpJobContentLike = $.trim($("#input_workExpJobContent_control").val());
+
             //求职岗位
             defaultSetting.filterExpects = $.trim($("#input_4_control").val());
             //求职意向不包含
@@ -517,9 +538,13 @@ btnDelFilter.addEventListener('click', e => {
 });
 
 const btnSC6 = document.getElementById("search_btn6_control");
-btnSC6.addEventListener('click', e => {
+btnSC6.addEventListener('click', async e => {
+    if(!event.isTrusted){
+        console.warn("非可信操作");
+        return;
+    }
     try {
-        doThings();
+        await doThings();
     } catch (error) {
         alert(filterFailedMsg);
         console.error(error);
