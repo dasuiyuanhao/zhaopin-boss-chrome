@@ -128,12 +128,20 @@ function initChatSetting() {
     defaultChatSetting.maxAutoSendMsgTimesOfChat = 100;
     defaultChatSetting.msgStatus = "1"
     defaultChatSetting.timeRange = "";
+    defaultChatSetting.autoReceiveResume = false;
 }
 
 //初始化筛选条件面板
 function initChatControl() {
     $("#input_chat_send_msg").val(defaultChatSetting.chatSendMsg);
     $("#input_maxAutoSendMsgTimesOfChat").val(defaultChatSetting.maxAutoSendMsgTimesOfChat);
+    //自动接收简历
+    if(defaultChatSetting.autoReceiveResume) {
+        $("#input_autoReceiveResume_control").prop("checked", "checked");
+    }
+    else {
+        $("#input_autoReceiveResume_control").prop("checked", false);
+    }
     //消息状态    
     if (defaultChatSetting.msgStatus == null) {
         //默认筛选已读
@@ -169,6 +177,11 @@ btnSaveChatSetting.addEventListener('click', e => {
             //
             defaultChatSetting.chatSendMsg = $.trim($("#input_chat_send_msg").val());
             defaultChatSetting.maxAutoSendMsgTimesOfChat = $.trim($("#input_maxAutoSendMsgTimesOfChat").val());
+            defaultChatSetting.autoReceiveResume = false;
+            if ($("#input_autoReceiveResume_control").prop("checked")) {
+                defaultChatSetting.autoReceiveResume = true;
+            }
+
             defaultChatSetting.timeRange = $("#select_timeRangeOfAutoSendMsg").val();
             defaultChatSetting.msgStatus = $("#select_msgStatusOfAutoSendMsg").val();
 
@@ -287,8 +300,8 @@ function scrollLoadOfChat() {
 
     //找到最下面的元素
     try {
-        let $chatContainer = $("div.chat-content-container");
-        $chatGeekItemList = $chatContainer.find("div.geek-item");
+        let $chatContainer = $("div.chat-container").find("div.user-list");
+        $chatGeekItemList = $chatContainer.find("div.geek-item-wrap");
 
         var rText = logMsgPart + ",全部沟通" + $chatGeekItemList.length + "个 ";
         printLogInfo(rText);
@@ -340,9 +353,7 @@ function scrollLoadOfChat() {
 function queryYidu() {
     resetQueryResult();
 
-    let $chatContainer = $("div.chat-content-container");
-    $chatGeekItemList = $chatContainer.find("div.geek-item");
-
+    
     //消息状态
     var filterMsgStatusVal = $("#select_msgStatusOfAutoSendMsg").val();
     var filterMsgStatus = "";
@@ -377,21 +388,25 @@ function queryYidu() {
     }
     // var timeLessThanOrEqualTo=moment().format('YYYY-MM-DD');
 
+    //开始遍历沟通列表
+    let $chatContainer = $("div.chat-container").find("div.user-list");
+    $chatGeekItemList = $chatContainer.find("div.geek-item-wrap");
+
     for (var i = 0; i < $chatGeekItemList.length; i++) {
         let $item = $($chatGeekItemList[i]);
 
         var itemData = { "domIndex": i };
-        var $warp = $item.find("div.geek-item-warp");
+        var $warp = $item.children("div.geek-item");
         itemData.currentuid = findUidOfChat($warp);
 
 
-        itemData.time = $warp.find("span.time").text();
-        itemData.realName = $warp.find("span.name").text();
+        itemData.time = $.trim($warp.find("span.time").text());
+        itemData.realName = $.trim($warp.find("span.geek-name").text());
         //消息状态
         itemData.msgStatus = "";
-        let $msgGraySpan = $warp.find("p.gray").children("span");
+        let $msgGraySpan = $warp.find("p.gray").children("span.status");
         if ($msgGraySpan != null && $msgGraySpan.length > 0) {
-            let text_msgStatusSpan = $($msgGraySpan[0]).text();
+            let text_msgStatusSpan = $.trim($($msgGraySpan[0]).text());
             if (text_msgStatusSpan != null && text_msgStatusSpan != "" && text_msgStatusSpan.indexOf('[') == 0) {
                 itemData.msgStatus = text_msgStatusSpan;
             }
@@ -472,19 +487,19 @@ function queryYidu() {
 }
 
 function findUidOfChat($warp) {
-    let currentuid = $warp.attr("currentuid");
-    let el_text_class = $warp.find("div.text").attr("class").toString();
-    if (el_text_class != null) {
-        let classNameList = el_text_class.split(" ");
-        if (classNameList != null && classNameList.length > 0) {
-            $.each(classNameList, function (idx, obj) {
-                if (!isBlank(obj) && obj.indexOf("uid-") >= 0) {
-                    currentuid = obj.substring(obj.indexOf("uid-") + 4);
-                    return true;
-                }
-            });
-        }
-    }
+    let currentuid = $warp.attr("data-id");
+    // let el_text_class = $warp.find("div.text").attr("class").toString();
+    // if (el_text_class != null) {
+    //     let classNameList = el_text_class.split(" ");
+    //     if (classNameList != null && classNameList.length > 0) {
+    //         $.each(classNameList, function (idx, obj) {
+    //             if (!isBlank(obj) && obj.indexOf("uid-") >= 0) {
+    //                 currentuid = obj.substring(obj.indexOf("uid-") + 4);
+    //                 return true;
+    //             }
+    //         });
+    //     }
+    // }
     return currentuid;
 }
 

@@ -162,6 +162,9 @@ panel.innerHTML = `
 
                         <label class="form-label" style="line-height: 30px;">自动发消息最大数量</label>
                         <input id="input_maxAutoSendMsgTimesOfChat" type="text" class="form-input" value="" style="width:40px;" />
+
+                        <input class="form-input" id="input_autoReceiveResume_control" type="checkbox" style="height: 30px;width: 16px;line-height: 30px;margin-left: 10px;padding: 0;" />
+                        <label class="form-label" style="line-height: 30px;" for="input_autoReceiveResume_control">自动接收简历</label>
             
                         <button id="btn_save_chat_setting"  style="min-width: 32px;width: 32px;height: 24px;line-height: 24px;font-size: 10px;margin-left: 10px;" class="form-btn" title="保存配置">保存</button>
                         <button id="btn_reset_chat_setting"  style="min-width: 32px;width: 32px;height: 24px;line-height: 24px;font-size: 10px;margin-left: 10px;background-color: orange;" class="form-btn" title="重置配置">重置</button>
@@ -212,7 +215,7 @@ panel.innerHTML = `
                 <div class="wrap" >
 
                     <div id="div_miyao_control" style="line-height: 30px;">
-                        <label class="form-label" style="line-height: 30px;">版本号：2.1.1</label>
+                        <label class="form-label" style="line-height: 30px;">版本号：2.1.2</label>
                         </br>
                         <span>声明：仅供学习参考，请勿用于商业行为！</span>
                         </br>

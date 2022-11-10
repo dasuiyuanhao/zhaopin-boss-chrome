@@ -44,7 +44,7 @@ function getChromeBackgroundActionMessage(backgroundActionType,data){
 }
 
 /**
- * 模拟操作鼠标点击
+ * 模拟操作鼠标点击-先做乾坤大挪移
  * @param {*} target 
  */
 function handTriggerClickByTrusted(target){
@@ -84,6 +84,46 @@ function handTriggerClickByTrusted(target){
 
             //乾坤大挪移-还原
             $target.css({"position": "","left":"","top":"","z-index":""});
+        }
+    )    
+
+}
+
+/**
+ * 模拟操作鼠标点击-直接模拟点击
+ * @param {*} target 
+ */
+ function handTriggerDirectClickByTrusted(target){
+    if(target==null){
+        return;
+    }
+    var $target=$(target);
+    /**  
+     * {"x":1147,"y":-802,"width":100,"height":34,"top":-802,"right":1247,"bottom":-768,"left":1147}  
+     */
+    var absLoc=$target.offset();
+    if(absLoc==null){
+        return;
+    }
+    //屏幕左上部分，以及按钮本身的偏移。
+    var data={
+        "xC":absLoc.left+5,
+        "yC":absLoc.top+5
+    };
+
+    printLogInfo("模拟操作鼠标点击-直接模拟点击。data="+JSON.stringify(data))
+
+    chrome.runtime.sendMessage(
+        getChromeBackgroundActionMessage(backgroundActionType_dispatchMouseEventClick,data),
+        function(response) {
+            if(response==null || response.chromePluginId==null || response.chromePluginId!=chromePluginId){
+                console.info("background执行回调有问题")
+                return;
+            }
+            else{
+                console.info("background执行回调成功")
+            }
+
         }
     )    
 

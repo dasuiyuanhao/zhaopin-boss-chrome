@@ -1,6 +1,6 @@
 {
     "name": "伯乐2号-招聘辅助工具",
-    "version": "2.0.6",
+    "version": "2.1.2",
     "description": "伯乐2号-招聘辅助工具",    
     "background": {
         "scripts": ["background.js"],

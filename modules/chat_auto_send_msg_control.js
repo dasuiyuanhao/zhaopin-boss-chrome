@@ -46,11 +46,11 @@ function stopAutoSendMsgChat() {
         return;
     }
 
-    var sendMsg= $.trim($("#input_chat_send_msg").val());
-    if(isBlank(sendMsg)){
-        alert("请填写消息内容，不能为空。");
-        return;
-    }
+    // var sendMsg= $.trim($("#input_chat_send_msg").val());
+    // if(isBlank(sendMsg)){
+    //     alert("请填写消息内容，不能为空。");
+    //     return;
+    // }
     
 
     var str_input_maxAutoSendMsgTimesOfChat=$.trim($("#input_maxAutoSendMsgTimesOfChat").val());
@@ -163,9 +163,33 @@ function autoSendMsgOneByOne(indexOfData){
     //选中聊天框
     $li.click();
 
-    var ranNum = randomNum(300, 2000);
+    var ranNum = randomNum(500, 3000);
     console.info("自动发消息,暂停" + ranNum + "毫秒后准备发消息。");
     setTimeout(function () {
+
+        //自动点击接收简历
+        try{
+            let autoReceiveResume = false;
+            if ($("#input_autoReceiveResume_control").prop("checked")) {
+                autoReceiveResume = true;
+            }
+            if(autoReceiveResume){
+                //查找接受简历的按钮
+                let $btAgree=$("div.notice-list").find("a.link-agree")
+                if($btAgree!=null && $btAgree.length>0){
+                    // $btAgree.trigger("click");
+                    //开启debugger
+                    handOpenDebugger_backgroundAction();
+                    handTriggerDirectClickByTrusted($btAgree[0])
+                    //关闭debugger
+                    handCloseDebugger_backgroundAction();
+                }
+            }
+        }catch(e){
+            console.error("自动点击接收简历异常，",e)
+        }        
+
+        //将要发送的消息内容
         var sendMsg=$("#input_chat_send_msg").val();
         if(!isBlank(sendMsg)){
             sendChatMsg(sendMsg,itemData);
@@ -180,7 +204,7 @@ function autoSendMsgOneByOne(indexOfData){
             if(!existZaici){
                 zaiCiGouTongDataList.push(itemData);
             }
-            autoSendMsgTimesOfChat++;
+            
             //更新背景颜色
             refreshChatItemRemark($li,"已沟通");
 
@@ -191,6 +215,7 @@ function autoSendMsgOneByOne(indexOfData){
             printLogInfo("自动发消息给第"+diJiGe+"个"+itemData.realName+"成功。自动发消息共"+sendedDataListOfAutoScrollMap.size()+"个。")
         }        
 
+        autoSendMsgTimesOfChat++;
         indexOfData++;
         ranNum = randomNum(300, 2000);
         console.info("自动发消息,暂停" + ranNum + "毫秒后操作下一个。");
@@ -211,12 +236,12 @@ function sendChatMsg(msg,itemData) {
         return;
     }
 
-    var $bosschat_input=$(".bosschat-chat-input");
+    var $bosschat_input=$("div.boss-chat-editor-input");
     if($bosschat_input.length>0){
         $bosschat_input.html(msg);
         handTriggerEventOfKeydownAndKeyup($bosschat_input[0]);
 
-        var $btn_send = $(".btn-send");
+        var $btn_send = $("div.submit");
         // $btn_send.removeClass("btn-disabled");        
         $btn_send.click();
     }
